@@ -25,7 +25,7 @@ const SlugKeduaMysql = () => {
     const detail = TemaDetails.find(td => td.parentId === parent.id && td.temaId === temaItem.id);
 
     return (
-    <div>
+    <div className=' overflow-y-auto h-screen w-full scrollbar-hide'>
       <h1 className=' font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
       <h1 className=' font-bold'>1. Pengertian</h1>
       <p className='mb-3 ml-5'>{detail.deskripsi}</p>
@@ -48,7 +48,7 @@ const SlugKeduaMysql = () => {
                     <h2 className=' ml-4 text-red-500'>Sintaks Wajib</h2>
                     <pre className=' bg-blue-100 p-2 ml-5 mb-2 inline-block px-4 '>{stx.db}</pre>
                     <h2 className='ml-4 text-red-500 font-bold'>Contoh</h2>
-                    <pre className='ml-4 bg-green-100 p-2 inline-block px-5 mb-3'>{stx.contoh}</pre>
+                    <pre className='ml-4 bg-green-100 p-2 inline-block px-5 '>{stx.contoh}</pre>
                 </div>
             ))}
         </div>

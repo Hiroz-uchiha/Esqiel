@@ -21,10 +21,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white flex`}
       >
         <Beranda />
-        {children}
+        <div className=" flex-1 overflow-y-auto bg-purple-50">
+          {children}
+        </div>
       </body>
     </html>
   );

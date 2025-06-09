@@ -21,7 +21,7 @@ const Tentangku = () => {
   ]
 
   return (
-    <div className=" text-black p-3 mx-auto w-[90%] flex lg:flex-row flex-col">
+    <div className=" text-black p-3 mx-auto w-[90%] flex lg:flex-row flex-col h-screen overflow-y-auto">
       <div className='shrink-0 lg:w-[36%] mx-auto w-[60%] mb-5'>
         <img src="/GAMbark2u.png" alt="Gambar" className=' w-full rounded-lg shadow-md' />
       </div>

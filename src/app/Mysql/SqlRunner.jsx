@@ -32,21 +32,21 @@ export default function SqlRunner() {
   }
 
   return (
-    <div className="my-4">
+    <div className="">
       <textarea
-        className="w-full p-2 border h-40 font-mono"
+        className="w-full p-2 rounded-lg h-40 bg-white outline-none"
         value={query}
         onChange={e => setQuery(e.target.value)}
         placeholder="Tulis query SQL di sini"
       />
-      <button onClick={handleRun} className="bg-green-500 text-white px-4 py-2 mt-2 rounded">
+      <button onClick={handleRun} className="bg-purple-500 text-white px-4 py-2 mt-2 rounded">
         Cek
       </button>
 
       {error && <pre className="text-red-600 mt-2">{error}</pre>}
 
       {result.map((res, idx) => (
-        <table key={idx} className="table-auto w-full border mt-4">
+        <table key={idx} className="table-auto w-full border">
           <thead>
             <tr>
               {res.columns.map(col => (

@@ -10,6 +10,7 @@ const Mysequel = () => {
                 <h2 className=' text-xl'>{item.name}</h2>
             </Link> 
         ))}
+
     </div>
   )
 }
