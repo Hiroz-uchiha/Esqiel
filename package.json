@@ -12,7 +12,8 @@
     "@sqlite.org/sqlite-wasm": "^3.49.2-build1",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sql.js": "^1.13.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

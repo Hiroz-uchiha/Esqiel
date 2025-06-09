@@ -22,7 +22,7 @@ const SlugAwal = () => {
     <div className=' '>
         <div className=' space-x-5 grid grid-cols-4 gap-3 space-y-5'>
             {detailData.tema.map((theme, idx) => ( 
-                <Link href={`/Mysql/${slug}/${theme.name.toLowerCase()}`}  key={idx} className=' bg-white h-[100px] items-center justify-center flex rounded-md shadow-md'>
+                <Link href={`/Mysql/${slug}/${createSlugAwal(theme.name.toLowerCase())}`}  key={idx} className=' bg-white h-[100px] items-center justify-center flex rounded-md shadow-md'>
                     <h1 className=' text-center justify-center flex '>{theme.name}</h1>
                 </Link >
             ))}

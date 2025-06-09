@@ -14,18 +14,21 @@ let URLMysql = [
             { id: 8, name: "SELECT", tipe: "Data Manipulation Language (DML)" },
             { id: 9, name: "WHERE", tipe: "Data Manipulation Language (DML)" },
             { id: 10, name: "ORDER BY", tipe: "Data Manipulation Language (DML)" },
-            { id: 11, name: "LIMIT & OFFSET", tipe: "Data Manipulation Language (DML)" },
+            { id: 11, name: "LIMIT AND OFFSET", tipe: "Data Manipulation Language (DML)" },
             { id: 12, name: "DISTINCT", tipe: "Data Manipulation Language (DML)" },
-            { id: 13, name: "IN, BETWEEN, LIKE, IS NULL", tipe: "Data Manipulation Language (DML)" },
-            { id: 14, name: "GROUP BY", tipe: "Data Manipulation Language (DML)" },
-            { id: 15, name: "HAVING", tipe: "Data Manipulation Language (DML)" },
-            { id: 16, name: "ALIAS", tipe: "Data Manipulation Language (DML)" },
-            { id: 17, name: "GRANT", tipe: "Data Control Language (DCL)" },
-            { id: 18, name: "REVOKE", tipe: "Data Control Language (DCL)" },
-            { id: 19, name: "BEGIN", tipe: "Transaction Control Language (TCL)" },
-            { id: 20, name: "COMMIT", tipe: "Transaction Control Language (TCL)" },
-            { id: 21, name: "ROLLBACK", tipe: "Transaction Control Language (TCL)" },
-            { id: 22, name: "SAVEPOINT", tipe: "Transaction Control Language (TCL)" }
+            { id: 13, name: "IN", tipe: "Data Manipulation Language (DML)" },
+            { id: 14, name: "BETWEEN", tipe: "Data Manipulation Language (DML)" },
+            { id: 15, name: "LIKE", tipe: "Data Manipulation Language (DML)" },
+            { id: 16, name: "IS NULL", tipe: "Data Manipulation Language (DML)" },
+            { id: 17, name: "GROUP BY", tipe: "Data Manipulation Language (DML)" },
+            { id: 18, name: "HAVING", tipe: "Data Manipulation Language (DML)" },
+            { id: 19, name: "ALIAS", tipe: "Data Manipulation Language (DML)" },
+            { id: 20, name: "GRANT", tipe: "Data Control Language (DCL)" },
+            { id: 21, name: "REVOKE", tipe: "Data Control Language (DCL)" },
+            { id: 22, name: "BEGIN", tipe: "Transaction Control Language (TCL)" },
+            { id: 23, name: "COMMIT", tipe: "Transaction Control Language (TCL)" },
+            { id: 24, name: "ROLLBACK", tipe: "Transaction Control Language (TCL)" },
+            { id: 25, name: "SAVEPOINT", tipe: "Transaction Control Language (TCL)" }
         ]
     },
     {
@@ -36,7 +39,7 @@ let URLMysql = [
             { id: 1, name: "INNER JOIN" },
             { id: 2, name: "LEFT JOIN" },
             { id: 3, name: "RIGHT JOIN" },
-            { id: 4, name: "FULL JOIN" },
+            { id: 4, name: "UNION" },
             { id: 5, name: "CROSS JOIN" },
             { id: 6, name: "SELF JOIN" }
         ]
@@ -114,6 +117,8 @@ let URLMysql = [
     }
 ];
 
+
+
 let URLMongoDB = [
     { id: 1, slugAwal:"dbms-mongodb" , name: "DBMS MongoDB" },
     { id: 2, name: "Database", slugAwal: "database" },
@@ -134,9 +139,16 @@ let URLMongoDB = [
         tema: [
             { id: 1, name: "find()" },
             { id: 2, name: "find with filter" },
-            { id: 3, name: "$gt, $lt, $in, $or, $and, $regex" },
-            { id: 4, name: "sort(), limit(), skip()" },
-            { id: 5, name: "projection" }
+            { id: 3, name: "$gt" },
+            { id: 4, name: "$lt" },
+            { id: 5, name: "$in" },
+            { id: 6, name: "$or" },
+            { id: 7, name: "$and" },
+            { id: 8, name: "$regex" },
+            { id: 9, name: "sort()" },
+            { id: 10, name: "limit()" },
+            { id: 11, name: "skip()" },
+            { id: 12, name: "projection" }
         ]
     },
     {
@@ -146,8 +158,12 @@ let URLMongoDB = [
         tema: [
             { id: 1, name: "updateOne()" },
             { id: 2, name: "updateMany()" },
-            { id: 3, name: "$set, $unset, $inc" },
-            { id: 4, name: "$push, $pull, $addToSet" }
+            { id: 3, name: "set" },
+            { id: 4, name: "unset" },
+            { id: 5, name: "inc" },
+            { id: 6, name: "push" },
+            { id: 7, name: "pull" },
+            { id: 8, name: "addToSet" },
         ]
     },
     {
