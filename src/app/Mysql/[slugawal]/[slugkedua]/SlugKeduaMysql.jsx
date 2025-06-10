@@ -32,7 +32,7 @@ const SlugKeduaMysql = () => {
         detail.name !== "INTRO" && (
           <>
             <h1 className=' font-bold'>1. Pengertian</h1>
-            <p className='mb-3'>{detail.deskripsi}</p>
+            <p className='mb-3 ml-5'>{detail.deskripsi}</p>
             <h2 className=' font-bold'>2. Objek yang dimaksud </h2>
 
             {detail?.objek && (
@@ -67,13 +67,13 @@ const SlugKeduaMysql = () => {
       {detail?.name === "INTRO" && (
         <>
           <h1 className=' font-bold'>Pengertian</h1>
-          <p className='mb-3 ml-5'>{detail.deskripsi}</p>
+          <p className='mb-3'>{detail.deskripsi}</p>
           <h1 className=' font-bold'>Analogi</h1>
-          <p className='mb-3 ml-5'>{detail.analogi}</p>
+          <p className='mb-3'>{detail.analogi}</p>
           <h1 className=' font-bold'>Apa yang terjadi jika tidak sesuai</h1>
-          <p className='mb-3 ml-5'>{detail.tidakSesuai}</p>
+          <p className='mb-3'>{detail.tidakSesuai}</p>
           <h1 className=' font-bold'>Cocok digunakan untuk apa saja</h1>
-          <p className='mb-3 ml-5'>{detail.cocok}</p>
+          <p className='mb-3'>{detail.cocok}</p>
           <h1 className=' font-bold text-xl mt-4'>Komponen Wajib</h1>
           {detail.komponen.map((kmp,idx) => (
             <div key={idx}>

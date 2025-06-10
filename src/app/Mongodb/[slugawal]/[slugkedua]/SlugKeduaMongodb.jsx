@@ -58,13 +58,6 @@ const SlugKeduaMongodb = () => {
                 ))}
               </div>
             )}
-
-            {/* <h2 className=' font-bold mt-2'>4. Praktek</h2>
-            <textarea name="" id="" className=' border-1 border-black w-full resize-none px-2 py-1 outline-none'></textarea>
-            <button className='mb-3 bg-green-200 p-2 px-8 mt-1 hover:bg-green-300 rounded-lg'>Cek</button>
-
-            <h2 className=' font-bold text-center'>Hasil</h2>
-            <p className=' bg-green-50 p-3'></p> */}
           </>
         )
       }
@@ -72,13 +65,13 @@ const SlugKeduaMongodb = () => {
       {detail?.name === "INTRO" && (
         <>
           <h1 className=' font-bold'>Pengertian</h1>
-          <p className='mb-3 ml-5'>{detail.deskripsi}</p>
+          <p className='mb-3'>{detail.deskripsi}</p>
           <h1 className=' font-bold'>Analogi</h1>
-          <p className='mb-3 ml-5'>{detail.analogi}</p>
+          <p className='mb-3'>{detail.analogi}</p>
           <h1 className=' font-bold'>Apa yang terjadi jika tidak sesuai</h1>
-          <p className='mb-3 ml-5'>{detail.tidakSesuai}</p>
+          <p className='mb-3'>{detail.tidakSesuai}</p>
           <h1 className=' font-bold'>Cocok digunakan untuk apa saja</h1>
-          <p className='mb-3 ml-5'>{detail.cocok}</p>
+          <p className='mb-3'>{detail.cocok}</p>
           <h1 className=' font-bold text-xl mt-4'>Komponen Wajib</h1>
           {detail.komponen.map((kmp,idx) => (
             <div key={idx}>
