@@ -32,7 +32,7 @@ const SlugKeduaMysql = () => {
         detail.name !== "INTRO" && (
           <>
             <h1 className=' font-bold'>1. Pengertian</h1>
-            <p className='mb-3 ml-5'>{detail.deskripsi}</p>
+            <p className='mb-3'>{detail.deskripsi}</p>
             <h2 className=' font-bold'>2. Objek yang dimaksud </h2>
 
             {detail?.objek && (
