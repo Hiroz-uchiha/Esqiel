@@ -24,7 +24,7 @@ const Beranda = () => {
   };
 
   return (
-    <div className='pt-10 p-3 text-black h-screen w-[20%] overflow-y-auto'>
+    <div className='pt-10 p-3 text-black h-full w-[20%] overflow-y-auto bg-purple-100'>
       <ul className='space-y-3 flex flex-col items-start'>
 
         {Judul.map((jdl, idx) => {
@@ -44,7 +44,7 @@ const Beranda = () => {
                       <Link key={tidx} href={linkHref}>
                         <h3 className={`
                           pl-3 text-sm pb-2 cursor-pointer
-                          hover:bg-purple-400 hover:w-full hover:text-white hover:p-1 hover:pl-3
+                          hover:bg-purple-400 hover:w-full mt-1 hover:text-white hover:p-1 hover:pl-3
                           ${isActive ? 'bg-purple-400 text-white p-1' : ''}
                         `}>
                           {theme.name.toLocaleUpperCase()}

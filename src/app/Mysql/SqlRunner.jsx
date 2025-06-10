@@ -32,9 +32,9 @@ export default function SqlRunner() {
   }
 
   return (
-    <div className="">
+    <div className=" ">
       <textarea
-        className="w-full p-2 rounded-lg h-40 bg-white outline-none"
+        className="w-full pr-3 p-2 rounded-lg h-40 outline-none border"
         value={query}
         onChange={e => setQuery(e.target.value)}
         placeholder="Tulis query SQL di sini"

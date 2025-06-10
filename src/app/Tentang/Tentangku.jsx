@@ -16,7 +16,7 @@ const Tentangku = () => {
       </div>
     )
     ,
-    "Jika kamu punya pertanyaan, butuh bantuan, atau ingin berdiskusi, jangan ragu untuk menghubungi saya melalui kontak di bawah. Saya sangat terbuka untuk berbagi ilmu dan pengalaman.",
+    "Jika Anda memiliki pertanyaan, memerlukan bantuan, atau ingin berdiskusi, silakan hubungi saya melalui email di esqieldb@gmail.com. Saya selalu terbuka untuk berbagi ilmu dan pengalaman.",
     "Selamat belajar, semoga bermanfaat, dan terus semangat mengeksplorasi dunia teknologi!"
   ]
 

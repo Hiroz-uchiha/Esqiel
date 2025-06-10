@@ -1,5 +1,15 @@
 let URLMysql = [
     {
+        id : 0,
+        name : "Intro",
+        slugAwal : 'Intro',
+        tema : [
+            {
+                id : 1, name : "Intro"
+            }
+        ]
+    },  
+    {
         id: 1,
         name: "SQL Commands",
         slugAwal : "sql-commands",
@@ -72,7 +82,7 @@ let URLMysql = [
             { id: 9, name: "NOW()", tipe: "Date Function" },
             { id: 10, name: "CURDATE()", tipe: "Date Function" },
             { id: 11, name: "DATEDIFF()", tipe: "Date Function" },
-            { id: 12, name: "DATE_FORMAT()", tipe: "Date Function" },
+            { id: 12, name: "DATEFORMAT()", tipe: "Date Function" },
             { id: 13, name: "CAST()", tipe: "Conversion Function" },
             { id: 14, name: "CONVERT()", tipe: "Conversion Function" }
         ]
@@ -120,6 +130,16 @@ let URLMysql = [
 
 
 let URLMongoDB = [
+    {
+        id : 0,
+        name : "Intro",
+        slugAwal : 'Intro',
+        tema : [
+            {
+                id : 1, name : "Intro"
+            }
+        ]
+    },  
     { id: 1, slugAwal:"dbms-mongodb" , name: "DBMS MongoDB" },
     { id: 2, name: "Database", slugAwal: "database" },
     { id: 3, name: "Collection", slugAwal: "collection" },
@@ -139,12 +159,12 @@ let URLMongoDB = [
         tema: [
             { id: 1, name: "find()" },
             { id: 2, name: "find with filter" },
-            { id: 3, name: "$gt" },
-            { id: 4, name: "$lt" },
-            { id: 5, name: "$in" },
-            { id: 6, name: "$or" },
-            { id: 7, name: "$and" },
-            { id: 8, name: "$regex" },
+            { id: 3, name: "gt" },
+            { id: 4, name: "lt" },
+            { id: 5, name: "in" },
+            { id: 6, name: "or" },
+            { id: 7, name: "and" },
+            { id: 8, name: "regex" },
             { id: 9, name: "sort()" },
             { id: 10, name: "limit()" },
             { id: 11, name: "skip()" },

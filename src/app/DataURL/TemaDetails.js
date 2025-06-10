@@ -1,5 +1,75 @@
 const TemaDetails = [ 
     {
+        parentId : 0,
+        temaId : 1,
+        name : "INTRO",
+        deskripsi : "MySQL adalah sistem manajemen basis data relasional (RDBMS) berbasis SQL (Structured Query Language). Data disimpan dalam bentuk tabel yang saling berelasi. MySQL adalah cara menyimpan data yang rapi, terstruktur, dan berurutan. Cocok kalau kamu tahu persis data apa yang mau disimpan, dan datanya punya bentuk yang konsisten.",
+        analogi : "Misalnya, kalau kamu punya lemari arsip di kantor, lalu setiap map di dalamnya harus berisi formulir dengan kolom-kolom yang sudah ditentukan, kolom untuk nama, alamat, dan nomor telepon. Setiap data harus lengkap dan ditulis di tempat yang sesuai. Misalnya, kalau kamu sedang membuat sistem pendaftaran siswa, maka setiap siswa harus punya data yang sama: nama, umur, alamat. Semuanya harus masuk dalam format yang telah ditentukan sejak awal. Karena itu, MySQL cocok buat menyimpan data yang bentuknya seragam dan tidak berubah-ubah.",
+        tidakSesuai : "Kalau kamu mencoba memasukkan data yang tidak sesuai dengan aturan yang sudah dibuat (misalnya isi umur pakai teks, atau kolom wajib kamu kosongkan), MySQL akan langsung menolak data tersebut dan memberi pesan error. Ini karena MySQL memang dibuat untuk menjaga data tetap konsisten, rapi, dan sesuai format. Jadi, salah sedikit saja, baik dari jenis data, panjang teks, atau kolom yang kosong, sistem bisa langsung protes.",
+        cocok : " MySQL cocok dipakai untuk aplikasi yang membutuhkan data terstruktur dan konsisten, seperti aplikasi kasir, sistem absen karyawan, pencatatan transaksi, sistem keuangan, manajemen sekolah, dan lain-lain. Pokoknya, semua sistem yang butuh urutan data yang jelas, lengkap, dan tidak berubah-ubah formatnya dari waktu ke waktu.",
+        komponen : [
+            {
+                id : 1, 
+                name : "Database",
+                deskripsi : "Database adalah tempat utama untuk menyimpan semua data. Bisa dibayangkan seperti sebuah lemari besar yang di dalamnya kamu taruh banyak map atau dokumen. Di dalam MySQL dan MongoDB, semua data disimpan di dalam database sebagai wadah utama.",
+                sintaks : "CREATE DATABASE nama_database;",
+                contoh : "CREATE DATABASE toko_online;",
+            },
+            {
+                id : 2, 
+                name : "Tabel",
+                deskripsi : "Tabel adalah tempat di dalam database untuk menyimpan data yang rapi dan terstruktur. Bisa dibayangkan seperti formulir berbaris yang semua kolomnya sudah ditentukan.",
+                sintaks : `CREATE TABLE nama_tabel (
+  kolom1 TipeData,
+  kolom2 TipeData,
+  ...
+);`,
+                contoh : `CREATE TABLE pelanggan (
+  id INT,
+  nama VARCHAR(100),
+  email VARCHAR(100)
+);
+`,
+            },
+            {
+                id : 3, 
+                name : "Baris",
+                deskripsi : "Baris adalah satu data utuh di dalam tabel. Misalnya, satu baris bisa berisi data satu pelanggan lengkap (nama, umur, email).",
+                sintaks : `INSERT INTO nama_tabel (kolom1, kolom2) VALUES (data1, data2);`,
+                contoh : `INSERT INTO pelanggan (nama, email) VALUES ('Siti', 'siti@email.com');`,
+            },
+            {
+                id : 4, 
+                name : "Kolom",
+                deskripsi : "Kolom adalah tipe data tertentu dalam sebuah tabel, misalnya kolom untuk nama, kolom untuk umur, kolom untuk email, dsb. Semua baris harus mengikuti kolom yang sudah dibuat.",
+                sintaks : `nama_kolom TipeData`,
+                contoh : `nama VARCHAR(100)`,
+            },
+            {
+                id : 5, 
+                name : "Schema",
+                deskripsi : "Skema adalah aturan atau struktur yang mendefinisikan bentuk data: kolom apa saja yang ada, jenis datanya apa, boleh kosong atau tidak.",
+                sintaks : `CREATE TABLE produk (
+  id INT NOT NULL,
+  nama VARCHAR(50),
+  harga DECIMAL(10,2)
+);
+`,
+                contoh : `const ProdukSchema = new Schema({
+  nama: String,
+  harga: Number
+});
+`,
+            },
+            {
+                id : 6, 
+                name : "Query",
+                deskripsi : "Query adalah perintah untuk mengambil atau memanipulasi data. Bisa untuk mencari data, menambah, mengubah, atau menghapus.",
+                contoh : `SELECT * FROM pelanggan WHERE nama = 'Budi';`,
+            },
+        ]
+    },
+    {
         parentId : 1,
         temaId : 1,
         name : "CREATE",
@@ -1236,6 +1306,59 @@ END;
 
 
 const TemaDetailsMongodb = [
+    {
+        parentId : 0,
+        temaId : 1,
+        name : "INTRO",
+        deskripsi : "MongoDB adalah sistem manajemen basis data NoSQL yang menggunakan format dokumen (JSON-like, BSON). Data disimpan dalam bentuk dokumen yang fleksibel tanpa skema tetap.",
+        analogi : "MongoDB adalah tempat menyimpan data yang fleksibel dan bebas format, mirip seperti kamu punya buku catatan harian atau kumpulan sticky notes. Kamu bisa nulis apa saja di sana — hari ini kamu catat to-do list, besok kamu tulis ide bisnis, lusa kamu cuma nyoret nama dan nomor teman. Nggak harus seragam. Inilah yang membuat MongoDB sangat nyaman dipakai kalau kamu tidak tahu pasti data seperti apa yang akan masuk nanti. Misalnya, kamu bikin aplikasi chatting, dan setiap pesan bisa punya lampiran, atau tidak. Atau kamu bikin sistem komentar, yang kadang ada foto, kadang ada tag lokasi, kadang cuma teks. MongoDB bisa menampung semuanya tanpa komplain.",
+        tidakSesuai : " Karena MongoDB tidak mewajibkan data punya format tetap, sebenarnya hampir tidak ada masalah kalau bentuk data berubah-ubah. Namun, kalau kamu pakai MongoDB dengan aturan tambahan seperti validasi (misalnya lewat Mongoose di Node.js), dan datanya tidak sesuai aturan itu, maka baru akan muncul error. Tapi secara bawaan, MongoDB akan tetap menerima data yang berbeda bentuk, selama strukturnya bisa dibaca.",
+        cocok : "  MongoDB cocok dipakai untuk aplikasi yang datanya tidak selalu sama, dan bisa berubah dari waktu ke waktu. Contohnya adalah aplikasi media sosial, sistem komentar, live chat, penyimpanan konfigurasi pengguna, atau dashboard yang bisa dikustomisasi. Intinya, kalau kamu ingin menyimpan data yang bebas, cepat, dan fleksibel, MongoDB adalah pilihan yang sangat bagus.",
+        komponen : [
+            {
+                id : 1, 
+                name : "Database",
+                deskripsi : "Database adalah tempat utama untuk menyimpan semua data. Bisa dibayangkan seperti sebuah lemari besar yang di dalamnya kamu taruh banyak map atau dokumen. Di dalam MySQL dan MongoDB, semua data disimpan di dalam database sebagai wadah utama.",
+                sintaks : "use nama_database",
+                contoh : "use toko_online",
+            },
+            {
+                id : 2, 
+                name : "Koleksi",
+                deskripsi : "Koleksi adalah kumpulan dokumen dalam MongoDB, mirip seperti tumpukan catatan yang punya tema sama, misalnya semua catatan tentang pelanggan.",
+                sintaks : `db.nama_koleksi.insertOne({ ... })`,
+                contoh : `db.pelanggan.insertOne({ nama: "Budi", email: "budi@gmail.com" })`,
+            },
+            {
+                id : 3, 
+                name : "Dokumen",
+                deskripsi : "Dokumen adalah satu set data utuh dalam bentuk JSON (mirip objek JavaScript). Setiap dokumen bisa punya isi yang berbeda-beda.",
+                sintaks : `db.koleksi.insertOne({ key1: value1, key2: value2 });`,
+                contoh : `db.pelanggan.insertOne({ nama: "Siti", email: "siti@email.com" });`,
+            },
+            {
+                id : 4, 
+                name : "Field",
+                deskripsi : "Field di MongoDB adalah seperti kolom di MySQL, tapi tidak wajib selalu sama di tiap dokumen. Ini seperti isian di catatan: kadang kamu isi 'email', kadang kamu tambahin 'alamat', kadang cuma 'nama' saja.",
+                contoh : `{ nama: "Andi", email: "andi@gmail.com" }`,
+            },
+            {
+                id : 5, 
+                name : "Schema",
+                deskripsi : "Skema adalah aturan atau struktur yang mendefinisikan bentuk data: kolom apa saja yang ada, jenis datanya apa, boleh kosong atau tidak.",
+                contoh : `const ProdukSchema = new Schema({
+  nama: String,
+  harga: Number
+});`,
+            },
+            {
+                id : 6, 
+                name : "Query",
+                deskripsi : "Query adalah perintah untuk mengambil atau memanipulasi data. Bisa untuk mencari data, menambah, mengubah, atau menghapus.",
+                contoh : `db.pelanggan.find({ nama: "Budi" });`,
+            },
+        ]
+    },
    {
         parentId : 4,
         temaId : 1,
