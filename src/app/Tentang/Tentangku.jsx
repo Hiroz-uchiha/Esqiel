@@ -3,7 +3,7 @@ import React from 'react'
 const Tentangku = () => {
   const paragraf = [
     "Halo semuanya!",
-    "Perkenalkan, saya Kiel Fernandes seorang Fullstack Developer yang memiliki ketertarikan besar pada dunia teknologi, pengembangan web, dan pengelolaan data. Saya juga lulusan dari Universitas Mikroskil tahun 2025.",
+    "Saya Kiel Fernandes seorang Fullstack Developer yang memiliki ketertarikan besar pada dunia teknologi, pengembangan web, dan pengelolaan data. Saya juga lulusan dari Universitas Mikroskil tahun 2025.",
     "Website ini saya buat khusus sebagai media belajar yang interaktif dan mudah diakses, ditujukan bagi siapa saja yang ingin memahami serta menguasai database seperti MySQL dan MongoDB, baik untuk pemula maupun yang ingin memperdalam ilmu.",
     (
       <div className=' lg:text-lg'>
@@ -21,7 +21,7 @@ const Tentangku = () => {
   ]
 
   return (
-    <div className=" text-black p-3 mx-auto w-[90%] flex lg:flex-row flex-col h-screen overflow-y-auto">
+    <div className=" text-black p-3 mx-auto w-[90%] flex lg:flex-row flex-col h-screen overflow-y-auto scrollbar-hide">
       <div className='shrink-0 lg:w-[36%] mx-auto w-[60%] mb-5'>
         <img src="/GAMbark2u.png" alt="Gambar" className=' w-full rounded-lg shadow-md' />
       </div>

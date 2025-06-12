@@ -5,7 +5,7 @@ import { URLMysql } from '../../../DataURL/DataUrl';
 import { TemaDetails } from '@/app/DataURL/TemaDetails';
 import SqlRunner from '../../SqlRunner';
 import CodeBlock from '@/app/DataURL/CodeBlock';
-
+import DefaultTable from '../../DefaultTable';
 
 const SlugKeduaMysql = () => {
   const params = useParams();
@@ -21,82 +21,92 @@ const SlugKeduaMysql = () => {
   }
 
   const parent = URLMysql.find(item => createSlugAwal(item.slugAwal) === slugAwal)
-
-  const temaItem = parent.tema.find(t => t.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').toLowerCase() === slugkedua);
-
+  const temaItem = parent.tema.find(t =>
+    t.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '') === slugkedua
+  );
   const detail = TemaDetails.find(td => td.parentId === parent.id && td.temaId === temaItem.id);
 
+  // Daftar fitur yang tidak didukung
+  const unsupported = [
+    'TRUNCATE', 'GRANT', 'REVOKE', 'RIGHT JOIN', 'ALTER VIEW', 'UPDATE VIEW',
+    'SUBSTRING', 'CURDATE', 'DATEDIFF', 'DATEFORMAT', 'CONVERT', 'SHOW INDEX'
+  ];
+
+  // Deteksi apakah name termasuk fitur tidak didukung
+  const isUnsupported = unsupported.includes(detail?.name?.toUpperCase());
+
   return (
-    <div className=' overflow-y-auto h-screen w-full scrollbar-hide'>
-      <h1 className=' font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
+    <div className='overflow-y-auto h-screen w-full scrollbar-hide'>
+      <h1 className='font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
 
-      {
-        detail.name !== "INTRO" && (
-          <>
-            <h1 className=' font-bold'>1. Pengertian</h1>
-            <p className='mb-3 ml-5'>{detail.deskripsi}</p>
-            <h2 className=' font-bold'>2. Objek yang dimaksud </h2>
-
-            {detail?.objek && (
-              <div className=' mb-3'>
-                {detail.objek.map((objek, idx) => (
-                  <li key={idx} className=' ml-8'>{objek}</li>
-                ))}
-              </div>
-            )}
-
-            <h2 className=' font-bold'>3. Sintaks Wajib</h2>
-            {detail?.sintaks && (
-              <div>
-                {detail.sintaks.map((stx, idx) => (
-                  <div key={idx} className=' ml-5'>
-                    <h2 className=' font-bold '>{stx.id}. {stx.name}</h2>
-                    <h2 className=' ml-4 text-red-500'>Sintaks Wajib</h2>
-                    <CodeBlock code={stx.db} language="sql" />
-                    <h2 className='ml-4 text-red-500 font-bold'>Contoh</h2>
-                    <CodeBlock code={stx.contoh} language="sql" />
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <h2 className=' font-bold mt-2'>4. Praktek</h2>
-            <SqlRunner />
-          </>
-        )
-      }
-
-      {detail?.name === "INTRO" && (
+      {detail.name !== "INTRO" && (
         <>
-          <h1 className=' font-bold'>Pengertian</h1>
-          <p className='mb-3'>{detail.deskripsi}</p>
-          <h1 className=' font-bold'>Analogi</h1>
-          <p className='mb-3'>{detail.analogi}</p>
-          <h1 className=' font-bold'>Apa yang terjadi jika tidak sesuai</h1>
-          <p className='mb-3'>{detail.tidakSesuai}</p>
-          <h1 className=' font-bold'>Cocok digunakan untuk apa saja</h1>
-          <p className='mb-3'>{detail.cocok}</p>
-          <h1 className=' font-bold text-xl mt-4'>Komponen Wajib</h1>
-          {detail.komponen.map((kmp,idx) => (
-            <div key={idx}>
-              <h1 className=' font-bold mt-3'> {kmp.id}.{kmp.name}</h1>
-              <p className='ml-4'>{kmp.deskripsi}</p>
-              {
-                kmp.sintaks? <>
-                  <h1 className=' font-bold mt-3'> Sintaks Wajib</h1>
-                  <CodeBlock code={kmp.sintaks} language="sql" />
-                </> : <></>
-              }            
-              <h1 className=' font-bold mt-3'>Contoh</h1>
-              <CodeBlock code={kmp.contoh} language="sql" />
-            </div>
-          ))}
-          
+          <h1 className='font-bold'>1. Pengertian</h1>
+          <p className='mb-3 ml-5'>{detail.deskripsi}</p>
+          <h2 className='font-bold'>2. Objek yang dimaksud</h2>
 
+          {detail?.objek && (
+            <div className='mb-3'>
+              {detail.objek.map((objek, idx) => (
+                <li key={idx} className='ml-8'>{objek}</li>
+              ))}
+            </div>
+          )}
+
+          <h2 className='font-bold'>3. Sintaks Wajib</h2>
+          {detail?.sintaks && (
+            <div>
+              {detail.sintaks.map((stx, idx) => (
+                <div key={idx} className='ml-5 mb-6'>
+                  <h2 className='font-bold'>{stx.id}. {stx.name}</h2>
+                  <CodeBlock code={stx.db} language="sql" />
+                  <h2 className='ml-4 font-bold'>Contoh</h2>
+                  <CodeBlock code={stx.contoh} language="sql" />
+                </div>
+              ))}
+            </div>
+          )}
+
+          {isUnsupported ? (
+            <div className='text-red-600 font-semibold ml-5 mt-2'>
+            </div>
+          ) : (
+            <>
+              <h2 className='font-bold mt-2'>4. Praktek</h2>
+              <DefaultTable />
+              <SqlRunner />
+            </>
+          )}
         </>
       )}
 
-
+      {detail?.name === "INTRO" && (
+        <>
+          <h1 className='font-bold'>Pengertian</h1>
+          <p className='mb-3'>{detail.deskripsi}</p>
+          <h1 className='font-bold'>Analogi</h1>
+          <p className='mb-3'>{detail.analogi}</p>
+          <h1 className='font-bold'>Apa yang terjadi jika tidak sesuai</h1>
+          <p className='mb-3'>{detail.tidakSesuai}</p>
+          <h1 className='font-bold'>Cocok digunakan untuk apa saja</h1>
+          <p className='mb-3'>{detail.cocok}</p>
+          <h1 className='font-bold text-xl mt-4'>Komponen Wajib</h1>
+          {detail.komponen.map((kmp, idx) => (
+            <div key={idx}>
+              <h1 className='font-bold mt-3'> {kmp.id}.{kmp.name}</h1>
+              <p className='ml-4'>{kmp.deskripsi}</p>
+              {kmp.sintaks && (
+                <>
+                  <h1 className='font-bold mt-3'>Sintaks Wajib</h1>
+                  <CodeBlock code={kmp.sintaks} language="sql" />
+                </>
+              )}
+              <h1 className='font-bold mt-3'>Contoh</h1>
+              <CodeBlock code={kmp.contoh} language="sql" />
+            </div>
+          ))}
+        </>
+      )}
     </div>
   )
 }

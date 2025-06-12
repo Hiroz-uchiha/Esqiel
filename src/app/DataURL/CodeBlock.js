@@ -5,7 +5,7 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const CodeBlock = ({ code, language = 'sql' }) => {
   return (
-    <div className="my-4 shadow-md rounded-md">
+    <div className="shadow-md rounded-md">
       <SyntaxHighlighter
         language={language}
         style={vscDarkPlus}

@@ -49,9 +49,8 @@ const SlugKeduaMongodb = () => {
                 {detail.sintaks.map((stx, idx) => (
                   <div key={idx} className=' ml-5'>
                     <h2 className=' font-bold '>{stx.id}. {stx.name}</h2>
-                    <h2 className=' ml-4 text-red-500'>Sintaks Wajib</h2>
                     <CodeBlock code={stx.db} language="sql" />
-                    <h2 className='ml-4 text-red-500 font-bold'>Contoh</h2>
+                    <h2 className='ml-4 text-black font-bold'>Contoh</h2>
                     <CodeBlock code={stx.contoh} language="sql" />
                     <h2 className='mt-3 font-bold'>Analogi jika dalam Mysql</h2>
                     <CodeBlock code={stx.analogi} language="sql" />
