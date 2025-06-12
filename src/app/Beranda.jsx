@@ -42,7 +42,7 @@ const Beranda = () => {
                     className={`
                       text-sm cursor-pointer
                       hover:bg-[#8bab80] hover:text-white p-1 pl-6 mt-1
-                      ${isActive ? 'bg-[#8bab80] text-black text-white' : ''}
+                      ${isActive ? 'bg-[#8bab80] text-black' : ''}
                     `}
                   >
                     {theme.name.toUpperCase()}
