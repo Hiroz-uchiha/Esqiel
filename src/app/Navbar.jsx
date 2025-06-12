@@ -25,11 +25,11 @@ const Navbar = () => {
       className="bg-[#5a6e53] p-1 text-white flex"
       style={{ fontFamily: "'Montserrat', cursive" }}
     >
-      <div className="w-[10%]">
+      <div className="w-[7%]">
         <img src="/logoesqiel.png" className="w-full" alt="logo" />
       </div>
 
-      <div className="items-center ml-5 text-lg flex px-2 w-[30%]">
+      <div className="items-center ml-5 text-lg flex px-2 w-[20%]">
         <ul className="flex justify-between mx-auto text-lg w-full items-center">
           {navbar.map((nb, idx) => {
             const slug = nb.path.split("/")[1]?.toLowerCase();
