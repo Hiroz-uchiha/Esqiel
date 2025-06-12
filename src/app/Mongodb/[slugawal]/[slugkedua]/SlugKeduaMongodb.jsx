@@ -3,6 +3,7 @@ import React from 'react'
 const { useParams } = require('next/navigation');
 import { URLMongoDB } from '../../../DataURL/DataUrl';
 import { TemaDetailsMongodb } from '@/app/DataURL/TemaDetails';
+import CodeBlock from '@/app/DataURL/CodeBlock';
 
 const SlugKeduaMongodb = () => {
   const params = useParams();
@@ -49,11 +50,11 @@ const SlugKeduaMongodb = () => {
                   <div key={idx} className=' ml-5'>
                     <h2 className=' font-bold '>{stx.id}. {stx.name}</h2>
                     <h2 className=' ml-4 text-red-500'>Sintaks Wajib</h2>
-                    <pre className=' bg-blue-100 p-2 ml-5 mb-2 inline-block px-4 '>{stx.db}</pre>
+                    <CodeBlock code={stx.db} language="sql" />
                     <h2 className='ml-4 text-red-500 font-bold'>Contoh</h2>
-                    <pre className='ml-4 bg-green-100 p-2 inline-block px-5'>{stx.contoh}</pre>
+                    <CodeBlock code={stx.contoh} language="sql" />
                     <h2 className='mt-3 font-bold'>Analogi jika dalam Mysql</h2>
-                    <pre className=' bg-gray-200 p-2  mb-5'>{stx.analogi}</pre>
+                    <CodeBlock code={stx.analogi} language="sql" />
                   </div>
                 ))}
               </div>
@@ -80,11 +81,11 @@ const SlugKeduaMongodb = () => {
               {
                 kmp.sintaks? <>
                   <h1 className=' font-bold mt-3'> Sintaks Wajib</h1>
-                  <pre className=' bg-green-100 p-2 m-2'>{kmp.sintaks}</pre>
+                  <CodeBlock code={kmp.sintaks} language="sql" />
                 </> : <></>
               }            
               <h1 className=' font-bold mt-3'>Contoh</h1>
-              <pre className=' bg-gray-100 p-2 m-2'>{kmp.contoh}</pre>
+              <CodeBlock code={kmp.contoh} language="sql" />
             </div>
           ))}
           

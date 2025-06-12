@@ -4,6 +4,8 @@ const { useParams } = require('next/navigation');
 import { URLMysql } from '../../../DataURL/DataUrl';
 import { TemaDetails } from '@/app/DataURL/TemaDetails';
 import SqlRunner from '../../SqlRunner';
+import CodeBlock from '@/app/DataURL/CodeBlock';
+
 
 const SlugKeduaMysql = () => {
   const params = useParams();
@@ -50,9 +52,9 @@ const SlugKeduaMysql = () => {
                   <div key={idx} className=' ml-5'>
                     <h2 className=' font-bold '>{stx.id}. {stx.name}</h2>
                     <h2 className=' ml-4 text-red-500'>Sintaks Wajib</h2>
-                    <pre className=' bg-blue-100 p-2 ml-5 mb-2 inline-block px-4 '>{stx.db}</pre>
+                    <CodeBlock code={stx.db} language="sql" />
                     <h2 className='ml-4 text-red-500 font-bold'>Contoh</h2>
-                    <pre className='ml-4 bg-green-100 p-2 inline-block px-5 '>{stx.contoh}</pre>
+                    <CodeBlock code={stx.contoh} language="sql" />
                   </div>
                 ))}
               </div>
@@ -82,11 +84,11 @@ const SlugKeduaMysql = () => {
               {
                 kmp.sintaks? <>
                   <h1 className=' font-bold mt-3'> Sintaks Wajib</h1>
-                  <pre className=' bg-green-100 p-2 m-2'>{kmp.sintaks}</pre>
+                  <CodeBlock code={kmp.sintaks} language="sql" />
                 </> : <></>
               }            
               <h1 className=' font-bold mt-3'>Contoh</h1>
-              <pre className=' bg-gray-100 p-2 m-2'>{kmp.contoh}</pre>
+              <CodeBlock code={kmp.contoh} language="sql" />
             </div>
           ))}
           

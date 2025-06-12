@@ -43,8 +43,8 @@ const Beranda = () => {
                     return (
                       <Link key={tidx} href={linkHref}>
                         <h3 className={`
-                          pl-3 text-sm pb-2 cursor-pointer
-                          hover:bg-purple-400 hover:w-full mt-1 hover:text-white hover:p-1 hover:pl-3
+                          pl-3 text-sm cursor-pointer
+                          hover:bg-purple-400 hover:w-full mt-1 hover:text-white p-1 hover:pl-3
                           ${isActive ? 'bg-purple-400 text-white p-1' : ''}
                         `}>
                           {theme.name.toLocaleUpperCase()}
