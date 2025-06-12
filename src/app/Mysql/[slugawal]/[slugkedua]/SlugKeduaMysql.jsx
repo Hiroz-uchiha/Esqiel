@@ -36,7 +36,7 @@ const SlugKeduaMysql = () => {
   const isUnsupported = unsupported.includes(detail?.name?.toUpperCase());
 
   return (
-    <div className='overflow-y-auto h-screen w-full scrollbar-hide'>
+    <div className='overflow-y-auto h-screen w-full scrollbar-hide -mt-3 pt-4'>
       <h1 className='font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
 
       {detail.name !== "INTRO" && (

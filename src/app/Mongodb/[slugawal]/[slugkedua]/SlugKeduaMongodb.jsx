@@ -26,7 +26,7 @@ const SlugKeduaMongodb = () => {
   console.log("Tema Item : ", temaItem)
 
   return (
-    <div>
+    <div className=' overflow-y-auto h-screen w-full scrollbar-hide -mt-3 pt-4'>
       <h1 className=' font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
       {
         detail.name !== "INTRO" && (

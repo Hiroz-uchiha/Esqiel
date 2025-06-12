@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <div
-      className="bg-[#5a6e53] p-3 text-white flex"
+      className="bg-[#5a6e53] p-1 text-white flex"
       style={{ fontFamily: "'Montserrat', cursive" }}
     >
       <div className="w-[10%]">
