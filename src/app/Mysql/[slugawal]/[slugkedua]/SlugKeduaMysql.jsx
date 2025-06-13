@@ -29,7 +29,8 @@ const SlugKeduaMysql = () => {
   // Daftar fitur yang tidak didukung
   const unsupported = [
     'TRUNCATE', 'GRANT', 'REVOKE', 'RIGHT JOIN', 'ALTER VIEW', 'UPDATE VIEW',
-    'SUBSTRING', 'CURDATE', 'DATEDIFF', 'DATEFORMAT', 'CONVERT', 'SHOW INDEX'
+    'SUBSTRING', 'CURDATE', 'DATEDIFF', 'DATEFORMAT', 'CONVERT', 'SHOW INDEX',
+    "CREATE"
   ];
 
   // Deteksi apakah name termasuk fitur tidak didukung
