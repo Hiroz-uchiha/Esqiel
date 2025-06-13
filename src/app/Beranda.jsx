@@ -28,7 +28,7 @@ const Beranda = () => {
       : [];
 
   return (
-    <div className="pt-3 text-black h-full w-[20%] overflow-y-auto bg-white">
+    <div className="pt-3 text-black h-full w-[20%] overflow-y-auto bg-white shadow-md">
       <ul className="flex flex-col items-start" style={{ fontFamily: "'Roboto', cursive" }}>
         {allSections.map((section, sidx) => (
           <div key={sidx} className="w-full">
