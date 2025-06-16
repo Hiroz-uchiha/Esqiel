@@ -29,7 +29,7 @@ const SlugKeduaMongodb = () => {
     <div className=' overflow-y-auto h-screen w-full scrollbar-hide -mt-3 pt-4'>
       <h1 className=' font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
       {
-        detail.name !== "INTRO" && (
+        detail.name !== "PERKENALAN" && (
           <>
             <h1 className=' font-bold'>1. Pengertian</h1>
             <p className='mb-3 ml-5'>{detail.deskripsi}</p>
@@ -62,7 +62,7 @@ const SlugKeduaMongodb = () => {
         )
       }
 
-      {detail?.name === "INTRO" && (
+      {detail?.name === "PERKENALAN" && (
         <>
           <h1 className=' font-bold'>Pengertian</h1>
           <p className='mb-3'>{detail.deskripsi}</p>

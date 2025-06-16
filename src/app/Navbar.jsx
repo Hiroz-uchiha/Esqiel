@@ -8,11 +8,11 @@ const Navbar = () => {
   const navbar = [
     {
       nama: "Mysql",
-      path: "/Mysql/intro/intro",
+      path: "/Mysql/intro/perkenalan",
     },
     {
       nama: "Mongodb",
-      path: "/Mongodb/intro/intro",
+      path: "/Mongodb/intro/perkenalan",
     },
     {
       nama: "Tentang",

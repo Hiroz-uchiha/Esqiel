@@ -3,9 +3,10 @@ import React from 'react'
 const { useParams } = require('next/navigation');
 import { URLMysql } from '../../../DataURL/DataUrl';
 import { TemaDetails } from '@/app/DataURL/TemaDetails';
-import SqlRunner from '../../SqlRunner';
+import SqlQueryRunner from '../../SqlRunner'; // rename to avoid confusion!
 import CodeBlock from '@/app/DataURL/CodeBlock';
 import DefaultTable from '../../DefaultTable';
+import SelectRunner from '../../SelectRunner';
 
 const SlugKeduaMysql = () => {
   const params = useParams();
@@ -26,21 +27,25 @@ const SlugKeduaMysql = () => {
   );
   const detail = TemaDetails.find(td => td.parentId === parent.id && td.temaId === temaItem.id);
 
+  // Deteksi topik relasi/join
+  const relasiJoinsTopics = [
+    'RELASI & JOINS', 'INNER JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'CROSS JOIN', 'SELF JOIN', 'UNION'
+  ];
+  const isRelasiJoin = relasiJoinsTopics.includes(detail?.name?.toUpperCase());
+
   // Daftar fitur yang tidak didukung
   const unsupported = [
     'TRUNCATE', 'GRANT', 'REVOKE', 'RIGHT JOIN', 'ALTER VIEW', 'UPDATE VIEW',
     'SUBSTRING', 'CURDATE', 'DATEDIFF', 'DATEFORMAT', 'CONVERT', 'SHOW INDEX',
     "CREATE"
   ];
-
-  // Deteksi apakah name termasuk fitur tidak didukung
   const isUnsupported = unsupported.includes(detail?.name?.toUpperCase());
 
   return (
     <div className='overflow-y-auto h-screen w-full scrollbar-hide -mt-3 pt-4'>
       <h1 className='font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
 
-      {detail.name !== "INTRO" && (
+      {detail.name !== "PERKENALAN" && (
         <>
           <h1 className='font-bold'>1. Pengertian</h1>
           <p className='mb-3 ml-5'>{detail.deskripsi}</p>
@@ -54,34 +59,63 @@ const SlugKeduaMysql = () => {
             </div>
           )}
 
-          <h2 className='font-bold'>3. Sintaks Wajib</h2>
-          {detail?.sintaks && (
+          {/* 3. Sintaks Wajib */}
+          {Array.isArray(detail?.sintaks) && detail.sintaks.some(stx => stx.db) && (
             <div>
-              {detail.sintaks.map((stx, idx) => (
-                <div key={idx} className='ml-5 mb-6'>
-                  <h2 className='font-bold'>{stx.id}. {stx.name}</h2>
-                  <CodeBlock code={stx.db} language="sql" />
-                  <h2 className='ml-4 font-bold'>Contoh</h2>
-                  <CodeBlock code={stx.contoh} language="sql" />
-                </div>
-              ))}
+              <h2 className='font-bold'>3. Sintaks Wajib</h2>
+              {detail.sintaks.map((stx, idx) =>
+                stx.db ? (
+                  <div key={idx} className='ml-5 mb-6'>
+                    <h2 className='font-bold'>{stx.id}. {stx.name}</h2>
+                    <CodeBlock code={stx.db} language="sql" />
+                    {stx.contoh && (
+                      <>
+                        <h2 className='ml-4 font-bold'>Contoh</h2>
+                        <CodeBlock code={stx.contoh} language="sql" />
+                      </>
+                    )}
+                  </div>
+                ) : null
+              )}
             </div>
           )}
 
+          {/* Contoh Saja */}
+          {Array.isArray(detail?.sintaks) && detail.sintaks.some(stx => !stx.db && stx.contoh) && (
+            <div>
+              <h2 className='font-bold'>Contoh</h2>
+              {detail.sintaks.map((stx, idx) =>
+                !stx.db && stx.contoh ? (
+                  <div key={idx} className='ml-5 mb-6'>
+                    <h2 className='font-bold'>{stx.id}. {stx.name}</h2>
+                    <CodeBlock code={stx.contoh} language="sql" />
+                  </div>
+                ) : null
+              )}
+            </div>
+          )}
+
+          {/* 4. Praktek */}
           {isUnsupported ? (
             <div className='text-red-600 font-semibold ml-5 mt-2'>
+              Fitur ini tidak didukung untuk bagian ini.
             </div>
           ) : (
             <>
               <h2 className='font-bold mt-2'>4. Praktek</h2>
-              <DefaultTable />
-              <SqlRunner />
+              {isRelasiJoin ? <SqlQueryRunner /> : 
+              <>
+              <DefaultTable />  
+              <SelectRunner />
+              </>
+              }
             </>
           )}
         </>
       )}
 
-      {detail?.name === "INTRO" && (
+      {/* Bagian Perkenalan */}
+      {detail?.name === "PERKENALAN" && (
         <>
           <h1 className='font-bold'>Pengertian</h1>
           <p className='mb-3'>{detail.deskripsi}</p>
