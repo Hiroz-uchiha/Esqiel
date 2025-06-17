@@ -1813,7 +1813,7 @@ const TemaDetailsMongodb = [
         },
         {
             title: "Analogi",
-            body: `Bayangkan MongoDB seperti buku catatan harian atau kumpulan sticky notes. Kamu bisa menulis apa saja—hari ini daftar belanja, besok ide bisnis, lusa sekadar nomor telepon. Tidak harus sama formatnya, semuanya tetap bisa disimpan.`
+            body: `Bayangkan MongoDB seperti buku catatan harian atau kumpulan sticky notes. Kamu bisa menulis apa saja hari ini daftar belanja, besok ide bisnis, lusa sekadar nomor telepon. Tidak harus sama formatnya, semuanya tetap bisa disimpan.`
         },
         {
             title: "Apa yang terjadi jika tidak sesuai?",
@@ -1825,48 +1825,63 @@ const TemaDetailsMongodb = [
         }
     ],
         komponen: [
-            {
-                id: 1,
-                name: "Database",
-                deskripsi: "Database adalah tempat utama untuk menyimpan semua data. Bisa dibayangkan seperti sebuah lemari besar yang di dalamnya kamu taruh banyak map atau dokumen. Di dalam MySQL dan MongoDB, semua data disimpan di dalam database sebagai wadah utama.",
-                sintaks: "use nama_database",
-                contoh: "use toko_online",
-            },
-            {
-                id: 2,
-                name: "Koleksi",
-                deskripsi: "Koleksi adalah kumpulan dokumen dalam MongoDB, mirip seperti tumpukan catatan yang punya tema sama, misalnya semua catatan tentang pelanggan.",
-                sintaks: `db.nama_koleksi.insertOne({ ... })`,
-                contoh: `db.pelanggan.insertOne({ nama: "Budi", email: "budi@gmail.com" })`,
-            },
-            {
-                id: 3,
-                name: "Dokumen",
-                deskripsi: "Dokumen adalah satu set data utuh dalam bentuk JSON (mirip objek JavaScript). Setiap dokumen bisa punya isi yang berbeda-beda.",
-                sintaks: `db.koleksi.insertOne({ key1: value1, key2: value2 });`,
-                contoh: `db.pelanggan.insertOne({ nama: "Siti", email: "siti@email.com" });`,
-            },
-            {
-                id: 4,
-                name: "Field",
-                deskripsi: "Field di MongoDB adalah seperti kolom di MySQL, tapi tidak wajib selalu sama di tiap dokumen. Ini seperti isian di catatan: kadang kamu isi 'email', kadang kamu tambahin 'alamat', kadang cuma 'nama' saja.",
-                contoh: `{ nama: "Andi", email: "andi@gmail.com" }`,
-            },
-            {
-                id: 5,
-                name: "Schema",
-                deskripsi: "Skema adalah aturan atau struktur yang mendefinisikan bentuk data: kolom apa saja yang ada, jenis datanya apa, boleh kosong atau tidak.",
-                contoh: `const ProdukSchema = new Schema({
+             {
+        id: 1,
+        name: "Database",
+        name_mysql: "Database",
+        deskripsi: "Database adalah tempat utama untuk menyimpan semua data. Bisa dibayangkan seperti sebuah lemari besar yang di dalamnya kamu taruh banyak map atau dokumen. Di dalam MySQL dan MongoDB, semua data disimpan di dalam database sebagai wadah utama.",
+        sintaks: "use nama_database",
+        contoh: "use toko_online",
+        contoh_mysql: "USE toko_online;"
+    },
+    {
+        id: 2,
+        name: "Koleksi",
+        name_mysql: "Tabel",
+        deskripsi: "Koleksi adalah kumpulan dokumen dalam MongoDB, mirip seperti tumpukan catatan yang punya tema sama, misalnya semua catatan tentang pelanggan.",
+        sintaks: `db.nama_koleksi.insertOne({ ... })`,
+        contoh: `db.pelanggan.insertOne({ nama: "Budi", email: "budi@gmail.com" })`,
+        contoh_mysql: "CREATE TABLE pelanggan (id INT, nama VARCHAR(50), email VARCHAR(50));"
+    },
+    {
+        id: 3,
+        name: "Dokumen",
+        name_mysql: "Baris (Record)",
+        deskripsi: "Dokumen adalah satu set data utuh dalam bentuk JSON (mirip objek JavaScript). Setiap dokumen bisa punya isi yang berbeda-beda.",
+        sintaks: `db.koleksi.insertOne({ key1: value1, key2: value2 });`,
+        contoh: `db.pelanggan.insertOne({ nama: "Siti", email: "siti@email.com" });`,
+        contoh_mysql: "INSERT INTO pelanggan (nama, email) VALUES ('Siti', 'siti@email.com');"
+    },
+    {
+        id: 4,
+        name: "Field",
+        name_mysql: "Kolom (Field)",
+        deskripsi: "Field di MongoDB adalah seperti kolom di MySQL, tapi tidak wajib selalu sama di tiap dokumen. Ini seperti isian di catatan: kadang kamu isi 'email', kadang kamu tambahin 'alamat', kadang cuma 'nama' saja.",
+        contoh: `{ nama: "Andi", email: "andi@gmail.com" }`,
+        contoh_mysql: "`nama VARCHAR(50), email VARCHAR(50)`"
+    },
+    {
+        id: 5,
+        name: "Schema",
+        name_mysql: "Skema/Tabel Schema",
+        deskripsi: "Skema adalah aturan atau struktur yang mendefinisikan bentuk data: kolom apa saja yang ada, jenis datanya apa, boleh kosong atau tidak.",
+        contoh: `const ProdukSchema = new Schema({
   nama: String,
   harga: Number
 });`,
-            },
-            {
-                id: 6,
-                name: "Query",
-                deskripsi: "Query adalah perintah untuk mengambil atau memanipulasi data. Bisa untuk mencari data, menambah, mengubah, atau menghapus.",
-                contoh: `db.pelanggan.find({ nama: "Budi" });`,
-            },
+        contoh_mysql: `CREATE TABLE produk (
+  nama VARCHAR(100) NOT NULL,
+  harga DECIMAL(10,2) NOT NULL
+);`
+    },
+    {
+        id: 6,
+        name: "Query",
+        name_mysql: "Query",
+        deskripsi: "Query adalah perintah untuk mengambil atau memanipulasi data. Bisa untuk mencari data, menambah, mengubah, atau menghapus.",
+        contoh: `db.pelanggan.find({ nama: "Budi" });`,
+        contoh_mysql: `SELECT * FROM pelanggan WHERE nama = 'Budi';`
+    },
         ]
     },
     {

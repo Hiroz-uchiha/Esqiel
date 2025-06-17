@@ -87,13 +87,13 @@ const SlugKeduaMongodb = () => {
       // fallback ke format lama jika belum array
       <>
         <h1 className=' font-bold'>Pengertian</h1>
-        <p className='mb-3'>{detail.deskripsi}</p>
+        <p className='mb-5'>{detail.deskripsi}</p>
         <h1 className=' font-bold'>Analogi</h1>
-        <p className='mb-3'>{detail.analogi}</p>
+        <p className='mb-5'>{detail.analogi}</p>
         <h1 className=' font-bold'>Apa yang terjadi jika tidak sesuai</h1>
-        <p className='mb-3'>{detail.tidakSesuai}</p>
+        <p className='mb-5'>{detail.tidakSesuai}</p>
         <h1 className=' font-bold'>Cocok digunakan untuk apa saja</h1>
-        <p className='mb-3'>{detail.cocok}</p>
+        <p className='mb-5'>{detail.cocok}</p>
       </>
     )}
 
@@ -103,14 +103,16 @@ const SlugKeduaMongodb = () => {
         <h1 className=' font-bold text-xl mt-4'>Komponen Wajib</h1>
         {detail.komponen.map((kmp,idx) => (
           <div key={idx}>
-            <h1 className=' font-bold mt-3'> {kmp.id}.{kmp.name}</h1>
+            <h1 className=' font-bold mt-5'> {kmp.id}.{kmp.name}</h1>
             <p className='ml-4'>{kmp.deskripsi}</p>
             {kmp.sintaks? <>
-              <h1 className=' font-bold mt-3'> Sintaks Wajib</h1>
+              <h1 className=' font-bold mt-2'> Sintaks Wajib</h1>
               <CodeBlock code={kmp.sintaks} language="sql" />
             </> : <></>}
             <h1 className=' font-bold mt-3'>Contoh</h1>
             <CodeBlock code={kmp.contoh} language="sql" />
+            <h1 className=' font-bold mt-3'>Analogi dalam Mysql sama seperti {kmp.name_mysql}</h1>
+            <CodeBlock code={kmp.contoh_mysql} language="sql" />
           </div>
         ))}
       </>
