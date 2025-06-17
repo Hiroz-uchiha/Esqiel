@@ -2,11 +2,26 @@ const TemaDetails = [
     {
         parentId: 0,
         temaId: 1,
-        name: "PERKENALAN",
-        deskripsi: "MySQL adalah sistem manajemen basis data relasional (RDBMS) berbasis SQL (Structured Query Language). Data disimpan dalam bentuk tabel yang saling berelasi. MySQL adalah cara menyimpan data yang rapi, terstruktur, dan berurutan. Cocok kalau kamu tahu persis data apa yang mau disimpan, dan datanya punya bentuk yang konsisten.",
-        analogi: "Misalnya, kalau kamu punya lemari arsip di kantor, lalu setiap map di dalamnya harus berisi formulir dengan kolom-kolom yang sudah ditentukan, kolom untuk nama, alamat, dan nomor telepon. Setiap data harus lengkap dan ditulis di tempat yang sesuai. Misalnya, kalau kamu sedang membuat sistem pendaftaran siswa, maka setiap siswa harus punya data yang sama: nama, umur, alamat. Semuanya harus masuk dalam format yang telah ditentukan sejak awal. Karena itu, MySQL cocok buat menyimpan data yang bentuknya seragam dan tidak berubah-ubah.",
-        tidakSesuai: "Kalau kamu mencoba memasukkan data yang tidak sesuai dengan aturan yang sudah dibuat (misalnya isi umur pakai teks, atau kolom wajib kamu kosongkan), MySQL akan langsung menolak data tersebut dan memberi pesan error. Ini karena MySQL memang dibuat untuk menjaga data tetap konsisten, rapi, dan sesuai format. Jadi, salah sedikit saja, baik dari jenis data, panjang teks, atau kolom yang kosong, sistem bisa langsung protes.",
-        cocok: " MySQL cocok dipakai untuk aplikasi yang membutuhkan data terstruktur dan konsisten, seperti aplikasi kasir, sistem absen karyawan, pencatatan transaksi, sistem keuangan, manajemen sekolah, dan lain-lain. Pokoknya, semua sistem yang butuh urutan data yang jelas, lengkap, dan tidak berubah-ubah formatnya dari waktu ke waktu.",
+        name: "Perkenalan",
+        perkenalan: [
+            {
+                title: "Pengertian",
+                body: "MySQL adalah sistem manajemen basis data relasional (RDBMS) berbasis SQL. Data disimpan dalam bentuk tabel yang saling berelasi. MySQL cocok untuk menyimpan data terstruktur dan konsisten."
+            },
+            {
+                title: "Analogi",
+                body: "Bayangkan MySQL seperti lemari arsip: setiap map harus rapi dan sesuai format. Setiap data punya tempat dan aturan penulisan."
+            },
+            {
+                title: "Apa yang terjadi jika tidak sesuai?",
+                body: "Jika data tidak sesuai aturan (misal: umur diisi teks), MySQL akan menolak dan memberi pesan error demi menjaga konsistensi."
+            },
+            {
+                title: "Cocok digunakan untuk apa saja?",
+                body: "Cocok untuk aplikasi kasir, sistem absensi, pencatatan transaksi, keuangan, dsb — pokoknya aplikasi dengan data terstruktur."
+            }
+        ],
+
         komponen: [
             {
                 id: 1,
@@ -74,7 +89,20 @@ const TemaDetails = [
         parentId: 1,
         temaId: 0,
         name: "Perkenalan",
-        deskripsi: "SQL Statement adalah perintah SQL untuk mengelola database, mulai dari membuat, membaca, mengubah, hingga menghapus data. SQL terbagi dalam beberapa kategori: DDL, DML, DCL, TCL.",
+        perkenalan: [
+            {
+                title: "Pengertian",
+                body: "SQL Statement adalah perintah untuk mengelola database, mulai dari membuat, membaca, mengubah, hingga menghapus data."
+            },
+            {
+                title: "Contoh Nyata",
+                body: "Perintah SELECT untuk mengambil data siswa, INSERT untuk menambah data, UPDATE untuk mengubah data, dan DELETE untuk menghapus data."
+            },
+            {
+                title: "Analogi",
+                body: "SQL Statement seperti instruksi ke pelayan restoran: ambilkan menu (SELECT), tambah pesanan (INSERT), ubah pesanan (UPDATE), batalkan pesanan (DELETE)."
+            }
+        ],
         objek: ["DDL", "DML", "DCL", "TCL"],
         analogi: "Instruksi ke database, seperti membuat/menghapus tabel, menambah/mengupdate data, dsb.",
         sintaks: [
@@ -599,9 +627,48 @@ const TemaDetails = [
     {
         parentId: 2,
         temaId: 0,
-        name: "RELASI & JOINS",
-        pengertian: " Relasi adalah hubungan antar-tabel di database yang biasanya menggunakan kunci (Primary Key/Foreign Key). JOIN digunakan untuk menggabungkan data dari dua atau lebih tabel yang punya relasi, supaya informasi yang tersebar di beberapa tabel bisa ditampilkan bersama. Kasus penggunaan bisa seperti menampilkan nama pelanggan dan total pesanannya, padahal data ada di tabel berbeda. Permisalannya bisa seperti menggabungkan daftar siswa dengan daftar nilai mereka berdasarkan nomor induk. Analogi bisa seperti mempertemukan dua daftar undangan pesta, satu daftar nama, satu lagi daftar makanan pesanan supaya kamu tahu siapa pesan apa.",
-        deskripsi: "Joins menghubungkan dua atau lebih tabel dalam satu query, sehingga data antar tabel bisa digabungkan sesuai kebutuhan.",
+        name: "Perkenalan",
+        perkenalan: [
+            {
+                title: "Relasi",
+                body: `Relasi adalah hubungan antar-tabel dalam sebuah database. Relasi menghubungkan data di satu tabel dengan data di tabel lain, biasanya menggunakan kunci unik seperti Primary Key dan Foreign Key. Dengan adanya relasi, data bisa tetap terstruktur, tidak redundant (berulang-ulang), dan mudah diakses serta dimodifikasi.`,
+                contoh: `dalam sistem toko online, tabel pelanggan terhubung dengan tabel pesanan menggunakan kolom id pelanggan sebagai penghubung (foreign key).`
+            },
+            {
+                title: "Join",
+                body: `adalah perintah SQL yang digunakan untuk mengambil (menggabungkan) data dari dua atau lebih tabel yang punya hubungan (relasi). Dengan JOIN, kamu bisa menampilkan data yang tersebar di beberapa tabel sekaligus, tanpa perlu menyimpan data yang sama berkali-kali di banyak tempat.
+JOIN memanfaatkan kolom yang berelasi (primary key dan foreign key) sebagai dasar penggabungan.`,
+                contoh: `Menampilkan daftar nama pelanggan bersama dengan total belanjaannya, padahal data nama ada di tabel pelanggan dan total belanja ada di tabel pesanan.`
+            },
+            {
+                title: "Primary Key",
+                body: "Primary key adalah kolom unik di satu tabel yang digunakan sebagai identitas tiap baris, seperti id_pelanggan."
+            },
+            {
+                title: "Foreign Key",
+                body: "Foreign key adalah kolom yang menunjuk ke primary key di tabel lain, berfungsi membangun relasi antar tabel."
+            },
+            {
+                title: "1-to-1",
+                body: "Setiap baris di tabel A hanya berhubungan dengan satu baris di tabel B dan sebaliknya. Misal: tabel orang dan tabel paspor."
+            },
+            {
+                title: "1-to-many",
+                body: "Satu baris di tabel A bisa terhubung dengan banyak baris di tabel B. Misal: satu pelanggan punya banyak pesanan."
+            },
+            {
+                title: "many-to-1",
+                body: "Banyak baris di tabel A mengarah ke satu baris di tabel B. (Kebalikan dari 1-to-many, contoh: banyak pesanan milik satu pelanggan)"
+            },
+            {
+                title: "Contoh Nyata",
+                body: "Contoh: Tabel pelanggan berisi data customer, tabel pesanan berisi daftar order, relasinya pakai id_pelanggan. Dengan JOIN, kamu bisa tahu siapa pesan apa dan berapa totalnya."
+            },
+            {
+                title: "Analogi",
+                body: "Analogi: Seperti menggabungkan daftar tamu dan daftar makanan yang dipesan pada acara ulang tahun, sehingga kamu tahu siapa pesan apa."
+            }
+        ],
         objek: [
             "INNER JOIN",
             "LEFT JOIN",
@@ -610,7 +677,6 @@ const TemaDetails = [
             "CROSS JOIN",
             "SELF JOIN"
         ],
-        analogi: "JOIN seperti menggabungkan daftar tamu dan daftar makanan yang mereka pesan, berdasarkan siapa yang memesan.",
         sintaks: [
             {
                 id: 1,
@@ -619,7 +685,8 @@ const TemaDetails = [
 FROM pelanggan JOIN pesanan ON pelanggan.id_pelanggan = pesanan.id_pelanggan;`
             }
         ]
-    },
+    }
+    ,
     {
         parentId: 2,
         temaId: 1,
@@ -775,11 +842,25 @@ JOIN karyawan b ON a.id_atasan = b.id;`
     {
         parentId: 3,
         temaId: 0,
-        name: "VIEWS",
-        pengertian: "View adalah objek database berupa tabel virtual yang berisi hasil dari query tertentu. View tidak menyimpan data secara fisik, tapi menyimpan query yang membentuknya. View digunakan untuk menyederhanakan query kompleks, membatasi akses data, dan memberikan sudut pandang (perspektif) tertentu dari data yang ada.",
-        deskripsi: "Membuat tampilan virtual dari hasil query (seperti tabel semu) yang bisa digunakan seperti tabel biasa.",
-        objek: ["View (berdasarkan SELECT dari tabel asli)"],
-        analogi: "View itu seperti filter di Excel; kamu melihat data tertentu saja tanpa mengubah data asli.",
+        name: "Perkenalan",
+        perkenalan: [
+            {
+                title: "Pengertian",
+                body: "View adalah objek database berupa tabel virtual yang berisi hasil dari query tertentu. Tidak menyimpan data fisik, hanya querynya saja."
+            },
+            {
+                title: "Fungsi",
+                body: "Digunakan untuk menyederhanakan query kompleks, membatasi akses data, dan memberikan perspektif khusus dari data."
+            },
+            {
+                title: "Analogi",
+                body: "Seperti filter di Excel, kamu hanya melihat data tertentu saja tanpa mengubah data asli."
+            },
+            {
+                title: "Contoh Nyata",
+                body: "Contoh: view_karyawan_IT menampilkan hanya karyawan dari departemen IT, padahal tabel aslinya menyimpan semua departemen."
+            }
+        ],
         sintaks: [
             {
                 id: 1,
@@ -886,8 +967,24 @@ WHERE nama = 'Budi';
         parentId: 4,
         temaId: 0,
         name: "Perkenalan",
-        pengertian: "SQL Scalar Function adalah fungsi pada SQL yang menerima satu input dan mengembalikan satu output. Digunakan untuk manipulasi teks, angka, atau tanggal pada setiap baris data.",
-        deskripsi: "Misal UPPER(), LOWER(), ROUND(), NOW(), yang mengubah 1 data menjadi 1 output.",
+        perkenalan: [
+        {
+            title: "Pengertian",
+            body: `SQL Scalar Function adalah fungsi SQL yang menerima satu nilai (input) dan mengembalikan satu nilai (output). Fungsi ini biasanya digunakan untuk mengubah, menghitung, atau memanipulasi data dalam satu baris, seperti mengubah huruf jadi kapital, membulatkan angka, atau mengambil tanggal saat ini.`
+        },
+        {
+            title: "Contoh Nyata",
+            body: `Misalnya, saat menampilkan nama pelanggan, kamu ingin semua huruf kapital: gunakan UPPER(nama). Atau, ingin membulatkan nilai diskon ke dua angka desimal: gunakan ROUND(diskon, 2).`
+        },
+        {
+            title: "Kegunaan",
+            body: `Scalar function dipakai untuk manipulasi teks, angka, atau tanggal dalam SELECT, WHERE, ORDER BY, dsb.`
+        },
+        {
+            title: "Analogi",
+            body: `Bayangkan scalar function seperti kalkulator saku: setiap kali kamu masukkan satu angka/teks, kamu dapat satu hasil baru sesuai fungsi yang digunakan.`
+        }
+    ],
         objek: ["String", "Angka", "Tanggal"],
         analogi: "Scalar function itu seperti kalkulator saku: kamu masukkan satu angka/teks, keluar satu hasil.",
         sintaks: [
@@ -1257,9 +1354,25 @@ FROM users;`
     {
         parentId: 5,
         temaId: 0,
-        name: "SQL AGGREGATE FUNCTIONS",
-        pengertian: "Aggregate Function adalah fungsi SQL yang memproses banyak nilai (biasanya dari beberapa baris data) dan mengembalikan satu nilai saja sebagai hasil agregasi. Contohnya menghitung jumlah, rata-rata, nilai terbesar/terkecil.",
-        deskripsi: "Digunakan untuk menghitung, merangkum, atau mengagregasi data seperti SUM(), AVG(), COUNT(), MIN(), MAX().",
+        name: "Perkenalan",
+        perkenalan: [
+        {
+            title: "Pengertian",
+            body: `Aggregate Function adalah fungsi SQL yang memproses banyak baris data sekaligus (bukan per baris), lalu mengembalikan satu nilai sebagai hasil agregasi. Fungsi ini dipakai untuk melakukan operasi seperti menghitung jumlah, mencari rata-rata, nilai terbesar, terkecil, dan sebagainya.`
+        },
+        {
+            title: "Contoh Nyata",
+            body: `Contoh: Menghitung jumlah karyawan dengan COUNT(*), rata-rata nilai ujian dengan AVG(nilai), total belanja customer dengan SUM(total), gaji tertinggi dengan MAX(gaji), atau harga termurah dengan MIN(harga).`
+        },
+        {
+            title: "Kegunaan",
+            body: `Aggregate function sangat penting saat ingin merangkum data, misal untuk laporan, statistik, atau ringkasan data di dashboard.`
+        },
+        {
+            title: "Analogi",
+            body: `Bayangkan aggregate function seperti kalkulator besar di kantor akuntan: ia menghitung total pengeluaran, rata-rata transaksi, atau mencari data ekstrem dari setumpuk catatan.`
+        }
+    ],
         objek: ["Kolom", "Banyak Baris"],
         analogi: "Aggregate function seperti kalkulator besar: menghitung total, rata-rata, minimum, maksimum dari sekumpulan data.",
         sintaks: [
@@ -1350,11 +1463,25 @@ FROM users;`
     {
         parentId: 6,
         temaId: 0,
-        name: "TRIGGERS",
-        pengertian: "Trigger adalah objek database berupa kode SQL yang akan dijalankan secara otomatis ketika ada peristiwa tertentu pada tabel (seperti sebelum/ setelah insert, update, delete). Berguna untuk menjaga konsistensi, validasi otomatis, atau mencatat log perubahan.",
-        deskripsi: "Digunakan untuk menjalankan aksi otomatis pada perubahan data tertentu di tabel.",
-        objek: ["Trigger", "Tabel"],
-        analogi: "Trigger itu seperti alarm otomatis: jika ada aksi tertentu, alarm langsung aktif dan melakukan sesuatu.",
+        name: "Perkenalan",
+        perkenalan: [
+            {
+                title: "Pengertian",
+                body: "Trigger adalah kode SQL yang otomatis dijalankan ketika terjadi aksi tertentu pada tabel, seperti sebelum/ sesudah insert, update, atau delete."
+            },
+            {
+                title: "Fungsi",
+                body: "Menjaga konsistensi data, validasi otomatis, mencatat log perubahan, atau otomatisasi aksi lain pada perubahan data."
+            },
+            {
+                title: "Analogi",
+                body: "Seperti alarm otomatis di rumah: ada gerakan, alarm langsung aktif."
+            },
+            {
+                title: "Contoh Nyata",
+                body: "Contoh: Setelah data siswa ditambah, otomatis sistem mencatat waktu dan aksi pada tabel log."
+            }
+        ],
         sintaks: [
             {
                 id: 1,
@@ -1569,11 +1696,25 @@ END;
     {
         parentId: 7,
         temaId: 0,
-        name: "INDEXES",
-        pengertian: "Index adalah struktur khusus dalam database untuk mempercepat proses pencarian, filter, dan pengurutan data pada kolom tertentu. Dengan index, database tidak perlu membaca semua baris satu per satu, sehingga query menjadi jauh lebih cepat.",
-        deskripsi: "Membuat indeks pada kolom tabel untuk mempercepat proses pencarian atau filter data.",
-        objek: ["Tabel", "Kolom", "Index"],
-        analogi: "Index seperti daftar isi buku, mempercepat pencarian halaman tertentu tanpa harus membaca semuanya dari depan.",
+        name: "Perkenalan",
+        perkenalan: [
+            {
+                title: "Pengertian",
+                body: "Index adalah struktur khusus dalam database untuk mempercepat pencarian, filter, dan pengurutan data."
+            },
+            {
+                title: "Fungsi",
+                body: "Mempercepat query SELECT, WHERE, ORDER BY pada kolom yang diindex. Tanpa index, pencarian bisa jadi sangat lambat di tabel besar."
+            },
+            {
+                title: "Analogi",
+                body: "Index itu seperti daftar isi pada buku, mempercepat pencarian halaman tertentu tanpa harus baca semuanya."
+            },
+            {
+                title: "Contoh Nyata",
+                body: "Misal: Index pada kolom nama di tabel karyawan, sehingga pencarian nama jadi sangat cepat meskipun data ribuan."
+            }
+        ],
         sintaks: [
             {
                 id: 1,
@@ -1664,11 +1805,25 @@ const TemaDetailsMongodb = [
     {
         parentId: 0,
         temaId: 1,
-        name: "PERKENALAN",
-        deskripsi: "MongoDB adalah sistem manajemen basis data NoSQL yang menggunakan format dokumen (JSON-like, BSON). Data disimpan dalam bentuk dokumen yang fleksibel tanpa skema tetap.",
-        analogi: "MongoDB adalah tempat menyimpan data yang fleksibel dan bebas format, mirip seperti kamu punya buku catatan harian atau kumpulan sticky notes. Kamu bisa nulis apa saja di sana, hari ini kamu catat to-do list, besok kamu tulis ide bisnis, lusa kamu cuma nyoret nama dan nomor teman. Nggak harus seragam. Inilah yang membuat MongoDB sangat nyaman dipakai kalau kamu tidak tahu pasti data seperti apa yang akan masuk nanti. Misalnya, kamu bikin aplikasi chatting, dan setiap pesan bisa punya lampiran, atau tidak. Atau kamu bikin sistem komentar, yang kadang ada foto, kadang ada tag lokasi, kadang cuma teks. MongoDB bisa menampung semuanya tanpa komplain.",
-        tidakSesuai: " Karena MongoDB tidak mewajibkan data punya format tetap, sebenarnya hampir tidak ada masalah kalau bentuk data berubah-ubah. Namun, kalau kamu pakai MongoDB dengan aturan tambahan seperti validasi (misalnya lewat Mongoose di Node.js), dan datanya tidak sesuai aturan itu, maka baru akan muncul error. Tapi secara bawaan, MongoDB akan tetap menerima data yang berbeda bentuk, selama strukturnya bisa dibaca.",
-        cocok: "  MongoDB cocok dipakai untuk aplikasi yang datanya tidak selalu sama, dan bisa berubah dari waktu ke waktu. Contohnya adalah aplikasi media sosial, sistem komentar, live chat, penyimpanan konfigurasi pengguna, atau dashboard yang bisa dikustomisasi. Intinya, kalau kamu ingin menyimpan data yang bebas, cepat, dan fleksibel, MongoDB adalah pilihan yang sangat bagus.",
+        name: "Perkenalan",
+        perkenalan: [
+        {
+            title: "Pengertian",
+            body: `MongoDB adalah sistem manajemen basis data NoSQL yang menyimpan data dalam format dokumen (JSON-like, BSON). Data disimpan dalam bentuk dokumen yang fleksibel dan tidak wajib mengikuti skema tetap. Cocok untuk aplikasi yang datanya bisa berubah-ubah atau tidak selalu sama strukturnya.`
+        },
+        {
+            title: "Analogi",
+            body: `Bayangkan MongoDB seperti buku catatan harian atau kumpulan sticky notes. Kamu bisa menulis apa saja—hari ini daftar belanja, besok ide bisnis, lusa sekadar nomor telepon. Tidak harus sama formatnya, semuanya tetap bisa disimpan.`
+        },
+        {
+            title: "Apa yang terjadi jika tidak sesuai?",
+            body: `Secara default, MongoDB tidak mempersoalkan bentuk data yang berubah-ubah. Tapi jika kamu menambah aturan validasi (misal via Mongoose), baru akan muncul error kalau data tidak sesuai aturan. Tapi tanpa validasi tambahan, MongoDB tetap menerima semua data selama format dasarnya bisa dibaca.`
+        },
+        {
+            title: "Cocok digunakan untuk apa saja?",
+            body: `Cocok untuk aplikasi media sosial, sistem komentar, live chat, dashboard, atau aplikasi yang butuh fleksibilitas tinggi. Pokoknya jika data kamu sering berubah atau tidak terduga strukturnya, MongoDB adalah pilihan tepat.`
+        }
+    ],
         komponen: [
             {
                 id: 1,

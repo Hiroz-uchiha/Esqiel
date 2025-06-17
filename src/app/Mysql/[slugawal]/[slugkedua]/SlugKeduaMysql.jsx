@@ -45,7 +45,7 @@ const SlugKeduaMysql = () => {
     <div className='overflow-y-auto h-screen w-full scrollbar-hide -mt-3 pt-4'>
       <h1 className='font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
 
-      {detail.name !== "PERKENALAN" && (
+      {detail.name !== "Perkenalan" && (
         <>
           <h1 className='font-bold'>1. Pengertian</h1>
           <p className='mb-3 ml-5'>{detail.deskripsi}</p>
@@ -103,11 +103,11 @@ const SlugKeduaMysql = () => {
           ) : (
             <>
               <h2 className='font-bold mt-2'>4. Praktek</h2>
-              {isRelasiJoin ? <SqlQueryRunner /> : 
-              <>
-              <DefaultTable />  
-              <SelectRunner />
-              </>
+              {isRelasiJoin ? <SqlQueryRunner /> :
+                <>
+                  <DefaultTable />
+                  <SelectRunner />
+                </>
               }
             </>
           )}
@@ -115,33 +115,72 @@ const SlugKeduaMysql = () => {
       )}
 
       {/* Bagian Perkenalan */}
-      {detail?.name === "PERKENALAN" && (
+      {detail?.name === "Perkenalan" && (
         <>
-          <h1 className='font-bold'>Pengertian</h1>
-          <p className='mb-3'>{detail.deskripsi}</p>
-          <h1 className='font-bold'>Analogi</h1>
-          <p className='mb-3'>{detail.analogi}</p>
-          <h1 className='font-bold'>Apa yang terjadi jika tidak sesuai</h1>
-          <p className='mb-3'>{detail.tidakSesuai}</p>
-          <h1 className='font-bold'>Cocok digunakan untuk apa saja</h1>
-          <p className='mb-3'>{detail.cocok}</p>
-          <h1 className='font-bold text-xl mt-4'>Komponen Wajib</h1>
-          {detail.komponen.map((kmp, idx) => (
-            <div key={idx}>
-              <h1 className='font-bold mt-3'> {kmp.id}.{kmp.name}</h1>
-              <p className='ml-4'>{kmp.deskripsi}</p>
-              {kmp.sintaks && (
-                <>
-                  <h1 className='font-bold mt-3'>Sintaks Wajib</h1>
-                  <CodeBlock code={kmp.sintaks} language="sql" />
-                </>
-              )}
-              <h1 className='font-bold mt-3'>Contoh</h1>
-              <CodeBlock code={kmp.contoh} language="sql" />
-            </div>
-          ))}
+          {Array.isArray(detail.perkenalan) ? (
+            <>
+              {detail.perkenalan.map((sec, idx) => (
+                <div key={idx} className="mb-4">
+                  <h1 className='font-bold'>{sec.title}</h1>
+                  <p className='mb-2'>{sec.body}</p>
+                  {sec.contoh && (
+                    Array.isArray(sec.contoh) ? (
+                      <ul className='list-disc ml-8 mb-2'>
+                        {sec.contoh.map((c, i) => <li key={i}>{c}</li>)}
+                      </ul>
+                    ) : (
+                      <div className='mb-2'>
+                        <span className='font-semibold'>Contoh: </span>{sec.contoh}
+                      </div>
+                    )
+                  )}
+                </div>
+              ))}
+             
+              <SqlQueryRunner />
+            </>
+          ) : (
+            // fallback untuk data lama
+            <>
+              <h1 className='font-bold'>Pengertian</h1>
+              <p className='mb-3'>{detail.deskripsi}</p>
+              <h1 className='font-bold'>Analogi</h1>
+              <p className='mb-3'>{detail.analogi}</p>
+              <h1 className='font-bold'>Apa yang terjadi jika tidak sesuai</h1>
+              <p className='mb-3'>{detail.tidakSesuai}</p>
+              <h1 className='font-bold'>Cocok digunakan untuk apa saja</h1>
+              <p className='mb-3'>{detail.cocok}</p>
+            </>
+          )}
+
+          {/* Komponen Wajib, jika ada */}
+          {detail.komponen && (
+            <>
+              <h1 className='font-bold text-xl mt-4'>Komponen Wajib</h1>
+              {detail.komponen.map((kmp, idx) => (
+                <div key={idx}>
+                  <h1 className='font-bold mt-3'> {kmp.id}.{kmp.name}</h1>
+                  <p className='ml-4'>{kmp.deskripsi}</p>
+                  {kmp.sintaks && (
+                    <>
+                      <h1 className='font-bold mt-3'>Sintaks Wajib</h1>
+                      <CodeBlock code={kmp.sintaks} language="sql" />
+                    </>
+                  )}
+                  <h1 className='font-bold mt-3'>Contoh</h1>
+                  <CodeBlock code={kmp.contoh} language="sql" />
+                </div>
+              ))}
+            </>
+          )}
         </>
       )}
+
+
+
+
+
+
     </div>
   )
 }

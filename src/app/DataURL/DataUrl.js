@@ -4,7 +4,7 @@ let URLMysql = [
         name: "Intro",
         slugAwal: "Intro",
         tema: [
-            { id: 1, name: "Perkenalan" }
+            { id: 1, name: "PERKENALAN" }
         ]
     },
     {
@@ -12,7 +12,7 @@ let URLMysql = [
         name: "SQL Statements",
         slugAwal: "sql-statements",
         tema: [
-            { id: 0, name: "Perkenalan" },
+            { id: 0, name: "PERKENALAN" },
             { id: 1, name: "CREATE", tipe: "DDL" },
             { id: 2, name: "ALTER", tipe: "DDL" },
             { id: 3, name: "DROP", tipe: "DDL" },
@@ -50,7 +50,7 @@ let URLMysql = [
         name: "Relations & Joins",
         slugAwal: "relations-and-joins",
         tema: [
-            { id: 0, name: "Perkenalan" },
+            { id: 0, name: "PERKENALAN" },
             { id: 1, name: "INNER JOIN" },
             { id: 2, name: "LEFT JOIN" },
             { id: 3, name: "RIGHT JOIN" },
@@ -66,7 +66,7 @@ let URLMysql = [
         name: "Views",
         slugAwal: "views-in-database",
         tema: [
-            { id: 0, name: "Perkenalan" },
+            { id: 0, name: "PERKENALAN" },
             { id: 1, name: "CREATE VIEW" },
             { id: 2, name: "ALTER VIEW" },
             { id: 3, name: "DROP VIEW" },
@@ -79,7 +79,7 @@ let URLMysql = [
         name: "SQL Scalar Functions",
         slugAwal: "functions-scalar",
         tema: [
-            { id: 0, name: "Perkenalan" },
+            { id: 0, name: "PERKENALAN" },
             { id: 1, name: "UPPER()" },
             { id: 2, name: "LOWER()" },
             { id: 3, name: "CONCAT()" },
@@ -108,7 +108,7 @@ let URLMysql = [
         name: "SQL Aggregate Functions",
         slugAwal: "functions-aggregate",
         tema: [
-            { id: 0, name: "Perkenalan" },
+            { id: 0, name: "PERKENALAN" },
             { id: 1, name: "COUNT()" },
             { id: 2, name: "SUM()" },
             { id: 3, name: "AVG()" },
@@ -121,7 +121,7 @@ let URLMysql = [
         name: "Triggers",
         slugAwal: "triggers-in-sql",
         tema: [
-            { id: 0, name: "Perkenalan" },
+            { id: 0, name: "PERKENALAN" },
             { id: 1, name: "CREATE TRIGGER" },
             { id: 2, name: "BEFORE INSERT" },
             { id: 3, name: "AFTER INSERT" },
@@ -136,7 +136,7 @@ let URLMysql = [
         name: "Indexes",
         slugAwal: "indexes-in-sql",
         tema: [
-            { id: 0, name: "Perkenalan" },
+            { id: 0, name: "PERKENALAN" },
             { id: 1, name: "CREATE INDEX" },
             { id: 2, name: "UNIQUE INDEX" },
             { id: 3, name: "DROP INDEX" },
@@ -156,7 +156,7 @@ let URLMongoDB = [
         slugAwal : 'Intro',
         tema : [
             {
-                id : 1, name : "Perkenalan"
+                id : 1, name : "PERKENALAN"
             }
         ]
     },  
