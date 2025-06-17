@@ -18,7 +18,7 @@ const TemaDetails = [
             },
             {
                 title: "Cocok digunakan untuk apa saja?",
-                body: "Cocok untuk aplikasi kasir, sistem absensi, pencatatan transaksi, keuangan, dsb — pokoknya aplikasi dengan data terstruktur."
+                body: "Cocok untuk aplikasi kasir, sistem absensi, pencatatan transaksi, keuangan, dsb. Pokoknya aplikasi dengan data terstruktur."
             }
         ],
 

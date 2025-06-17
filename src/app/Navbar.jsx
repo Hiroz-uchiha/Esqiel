@@ -1,13 +1,15 @@
 'use client';
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { URLMysql, URLMongoDB } from "../app/DataURL/DataUrl";
 
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [search, setSearch] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const listRef = useRef(null);
 
   const navbar = [
     { nama: "Mysql", path: "/Mysql/intro/perkenalan" },
@@ -22,7 +24,7 @@ const Navbar = () => {
       .replace(/\s+/g, "-")
       .replace(/-+/g, '-')
       .trim();
-  }
+  };
 
   const allTopics = [
     ...URLMysql.flatMap(u => u.tema.map(t => ({ name: t.name, type: 'Mysql', slugAwal: u.slugAwal }))),
@@ -36,7 +38,31 @@ const Navbar = () => {
   const handleSelect = (topic) => {
     router.push(`/${topic.type}/${createSlug(topic.slugAwal)}/${createSlug(topic.name)}`);
     setSearch("");
+    setSelectedIndex(-1);
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowDown") {
+      setSelectedIndex(prev => Math.min(prev + 1, filteredTopics.length - 1));
+    } else if (e.key === "ArrowUp") {
+      setSelectedIndex(prev => (prev > -1 ? prev - 1 : -1));
+    } else if (e.key === "Enter" && selectedIndex >= 0) {
+      handleSelect(filteredTopics[selectedIndex]);
+    }
+  };
+
+  useEffect(() => {
+    setSelectedIndex(-1);
+  }, [search]);
+
+  useEffect(() => {
+    if (listRef.current && selectedIndex >= 0) {
+      const selectedItem = listRef.current.children[selectedIndex];
+      if (selectedItem) {
+        selectedItem.scrollIntoView({ block: "nearest" });
+      }
+    }
+  }, [selectedIndex]);
 
   return (
     <div
@@ -72,18 +98,19 @@ const Navbar = () => {
       <div className="ml-auto relative">
         <input
           type="text"
-          className="rounded-full px-2 py-1 text-black bg-white mr-10 pl-4 outline-none w-[90%]"
+          className="rounded-full px-2 py-1 text-black bg-white mr-10 pl-4 outline-none w-[90%] h-full"
           placeholder="Cari topik..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
 
         {search && filteredTopics.length > 0 && (
-          <div className="absolute h-[200px] bg-white text-black rounded-md mt-1 w-[250px] overflow-y-auto shadow-lg">
+          <div ref={listRef} className="absolute h-[200px] bg-white text-black rounded-md mt-1 w-[250px] overflow-y-auto shadow-lg">
             {filteredTopics.map((topic, idx) => (
               <div
                 key={idx}
-                className="px-2 py-1 cursor-pointer hover:bg-gray-200"
+                className={`px-2 py-1 cursor-pointer hover:bg-gray-200 ${selectedIndex === idx ? "bg-gray-300" : ""}`}
                 onClick={() => handleSelect(topic)}
               >
                 <span className="font-semibold">[{topic.type}]</span> {topic.name}
