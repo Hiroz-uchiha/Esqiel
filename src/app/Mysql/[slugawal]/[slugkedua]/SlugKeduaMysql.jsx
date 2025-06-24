@@ -41,6 +41,9 @@ const SlugKeduaMysql = () => {
   ];
   const isUnsupported = unsupported.includes(detail?.name?.toUpperCase());
 
+  const isIntroPerkenalan = parent?.id === 0 && detail?.name?.toUpperCase() === "PERKENALAN";
+
+
   return (
     <div className='overflow-y-auto h-screen w-full scrollbar-hide -mt-3 pt-4'>
       <h1 className='font-bold text-center text-lg'>{detail?.name || temaItem.name}</h1>
@@ -137,7 +140,7 @@ const SlugKeduaMysql = () => {
                 </div>
               ))}
              
-              <SqlQueryRunner />
+        {!isIntroPerkenalan && <SqlQueryRunner />}
             </>
           ) : (
             // fallback untuk data lama
