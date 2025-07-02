@@ -217,6 +217,7 @@ let URLMongoDB = [
         name: "Index",
         slugAwal: "index",
         tema: [
+            {id : 0, name : "Perkenalan"},
             { id: 1, name: "createIndex()" },
             { id: 2, name: "text index" },
             { id: 3, name: "compound index" },

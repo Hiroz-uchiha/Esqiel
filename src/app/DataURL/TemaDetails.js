@@ -968,23 +968,23 @@ WHERE nama = 'Budi';
         temaId: 0,
         name: "Perkenalan",
         perkenalan: [
-        {
-            title: "Pengertian",
-            body: `SQL Scalar Function adalah fungsi SQL yang menerima satu nilai (input) dan mengembalikan satu nilai (output). Fungsi ini biasanya digunakan untuk mengubah, menghitung, atau memanipulasi data dalam satu baris, seperti mengubah huruf jadi kapital, membulatkan angka, atau mengambil tanggal saat ini.`
-        },
-        {
-            title: "Contoh Nyata",
-            body: `Misalnya, saat menampilkan nama pelanggan, kamu ingin semua huruf kapital: gunakan UPPER(nama). Atau, ingin membulatkan nilai diskon ke dua angka desimal: gunakan ROUND(diskon, 2).`
-        },
-        {
-            title: "Kegunaan",
-            body: `Scalar function dipakai untuk manipulasi teks, angka, atau tanggal dalam SELECT, WHERE, ORDER BY, dsb.`
-        },
-        {
-            title: "Analogi",
-            body: `Bayangkan scalar function seperti kalkulator saku: setiap kali kamu masukkan satu angka/teks, kamu dapat satu hasil baru sesuai fungsi yang digunakan.`
-        }
-    ],
+            {
+                title: "Pengertian",
+                body: `SQL Scalar Function adalah fungsi SQL yang menerima satu nilai (input) dan mengembalikan satu nilai (output). Fungsi ini biasanya digunakan untuk mengubah, menghitung, atau memanipulasi data dalam satu baris, seperti mengubah huruf jadi kapital, membulatkan angka, atau mengambil tanggal saat ini.`
+            },
+            {
+                title: "Contoh Nyata",
+                body: `Misalnya, saat menampilkan nama pelanggan, kamu ingin semua huruf kapital: gunakan UPPER(nama). Atau, ingin membulatkan nilai diskon ke dua angka desimal: gunakan ROUND(diskon, 2).`
+            },
+            {
+                title: "Kegunaan",
+                body: `Scalar function dipakai untuk manipulasi teks, angka, atau tanggal dalam SELECT, WHERE, ORDER BY, dsb.`
+            },
+            {
+                title: "Analogi",
+                body: `Bayangkan scalar function seperti kalkulator saku: setiap kali kamu masukkan satu angka/teks, kamu dapat satu hasil baru sesuai fungsi yang digunakan.`
+            }
+        ],
         objek: ["String", "Angka", "Tanggal"],
         analogi: "Scalar function itu seperti kalkulator saku: kamu masukkan satu angka/teks, keluar satu hasil.",
         sintaks: [
@@ -1356,23 +1356,23 @@ FROM users;`
         temaId: 0,
         name: "Perkenalan",
         perkenalan: [
-        {
-            title: "Pengertian",
-            body: `Aggregate Function adalah fungsi SQL yang memproses banyak baris data sekaligus (bukan per baris), lalu mengembalikan satu nilai sebagai hasil agregasi. Fungsi ini dipakai untuk melakukan operasi seperti menghitung jumlah, mencari rata-rata, nilai terbesar, terkecil, dan sebagainya.`
-        },
-        {
-            title: "Contoh Nyata",
-            body: `Contoh: Menghitung jumlah karyawan dengan COUNT(*), rata-rata nilai ujian dengan AVG(nilai), total belanja customer dengan SUM(total), gaji tertinggi dengan MAX(gaji), atau harga termurah dengan MIN(harga).`
-        },
-        {
-            title: "Kegunaan",
-            body: `Aggregate function sangat penting saat ingin merangkum data, misal untuk laporan, statistik, atau ringkasan data di dashboard.`
-        },
-        {
-            title: "Analogi",
-            body: `Bayangkan aggregate function seperti kalkulator besar di kantor akuntan: ia menghitung total pengeluaran, rata-rata transaksi, atau mencari data ekstrem dari setumpuk catatan.`
-        }
-    ],
+            {
+                title: "Pengertian",
+                body: `Aggregate Function adalah fungsi SQL yang memproses banyak baris data sekaligus (bukan per baris), lalu mengembalikan satu nilai sebagai hasil agregasi. Fungsi ini dipakai untuk melakukan operasi seperti menghitung jumlah, mencari rata-rata, nilai terbesar, terkecil, dan sebagainya.`
+            },
+            {
+                title: "Contoh Nyata",
+                body: `Contoh: Menghitung jumlah karyawan dengan COUNT(*), rata-rata nilai ujian dengan AVG(nilai), total belanja customer dengan SUM(total), gaji tertinggi dengan MAX(gaji), atau harga termurah dengan MIN(harga).`
+            },
+            {
+                title: "Kegunaan",
+                body: `Aggregate function sangat penting saat ingin merangkum data, misal untuk laporan, statistik, atau ringkasan data di dashboard.`
+            },
+            {
+                title: "Analogi",
+                body: `Bayangkan aggregate function seperti kalkulator besar di kantor akuntan: ia menghitung total pengeluaran, rata-rata transaksi, atau mencari data ekstrem dari setumpuk catatan.`
+            }
+        ],
         objek: ["Kolom", "Banyak Baris"],
         analogi: "Aggregate function seperti kalkulator besar: menghitung total, rata-rata, minimum, maksimum dari sekumpulan data.",
         sintaks: [
@@ -1807,81 +1807,81 @@ const TemaDetailsMongodb = [
         temaId: 1,
         name: "Perkenalan",
         perkenalan: [
-        {
-            title: "Pengertian",
-            body: `MongoDB adalah sistem manajemen basis data NoSQL yang menyimpan data dalam format dokumen (JSON-like, BSON). Data disimpan dalam bentuk dokumen yang fleksibel dan tidak wajib mengikuti skema tetap. Cocok untuk aplikasi yang datanya bisa berubah-ubah atau tidak selalu sama strukturnya.`
-        },
-        {
-            title: "Analogi",
-            body: `Bayangkan MongoDB seperti buku catatan harian atau kumpulan sticky notes. Kamu bisa menulis apa saja hari ini daftar belanja, besok ide bisnis, lusa sekadar nomor telepon. Tidak harus sama formatnya, semuanya tetap bisa disimpan.`
-        },
-        {
-            title: "Apa yang terjadi jika tidak sesuai?",
-            body: `Secara default, MongoDB tidak mempersoalkan bentuk data yang berubah-ubah. Tapi jika kamu menambah aturan validasi (misal via Mongoose), baru akan muncul error kalau data tidak sesuai aturan. Tapi tanpa validasi tambahan, MongoDB tetap menerima semua data selama format dasarnya bisa dibaca.`
-        },
-        {
-            title: "Cocok digunakan untuk apa saja?",
-            body: `Cocok untuk aplikasi media sosial, sistem komentar, live chat, dashboard, atau aplikasi yang butuh fleksibilitas tinggi. Pokoknya jika data kamu sering berubah atau tidak terduga strukturnya, MongoDB adalah pilihan tepat.`
-        }
-    ],
+            {
+                title: "Pengertian",
+                body: `MongoDB adalah sistem manajemen basis data NoSQL yang menyimpan data dalam format dokumen (JSON-like, BSON). Data disimpan dalam bentuk dokumen yang fleksibel dan tidak wajib mengikuti skema tetap. Cocok untuk aplikasi yang datanya bisa berubah-ubah atau tidak selalu sama strukturnya.`
+            },
+            {
+                title: "Analogi",
+                body: `Bayangkan MongoDB seperti buku catatan harian atau kumpulan sticky notes. Kamu bisa menulis apa saja hari ini daftar belanja, besok ide bisnis, lusa sekadar nomor telepon. Tidak harus sama formatnya, semuanya tetap bisa disimpan.`
+            },
+            {
+                title: "Apa yang terjadi jika tidak sesuai?",
+                body: `Secara default, MongoDB tidak mempersoalkan bentuk data yang berubah-ubah. Tapi jika kamu menambah aturan validasi (misal via Mongoose), baru akan muncul error kalau data tidak sesuai aturan. Tapi tanpa validasi tambahan, MongoDB tetap menerima semua data selama format dasarnya bisa dibaca.`
+            },
+            {
+                title: "Cocok digunakan untuk apa saja?",
+                body: `Cocok untuk aplikasi media sosial, sistem komentar, live chat, dashboard, atau aplikasi yang butuh fleksibilitas tinggi. Pokoknya jika data kamu sering berubah atau tidak terduga strukturnya, MongoDB adalah pilihan tepat.`
+            }
+        ],
         komponen: [
-             {
-        id: 1,
-        name: "Database",
-        name_mysql: "Database",
-        deskripsi: "Database adalah tempat utama untuk menyimpan semua data. Bisa dibayangkan seperti sebuah lemari besar yang di dalamnya kamu taruh banyak map atau dokumen. Di dalam MySQL dan MongoDB, semua data disimpan di dalam database sebagai wadah utama.",
-        sintaks: "use nama_database",
-        contoh: "use toko_online",
-        contoh_mysql: "USE toko_online;"
-    },
-    {
-        id: 2,
-        name: "Koleksi",
-        name_mysql: "Tabel",
-        deskripsi: "Koleksi adalah kumpulan dokumen dalam MongoDB, mirip seperti tumpukan catatan yang punya tema sama, misalnya semua catatan tentang pelanggan.",
-        sintaks: `db.nama_koleksi.insertOne({ ... })`,
-        contoh: `db.pelanggan.insertOne({ nama: "Budi", email: "budi@gmail.com" })`,
-        contoh_mysql: "CREATE TABLE pelanggan (id INT, nama VARCHAR(50), email VARCHAR(50));"
-    },
-    {
-        id: 3,
-        name: "Dokumen",
-        name_mysql: "Baris (Record)",
-        deskripsi: "Dokumen adalah satu set data utuh dalam bentuk JSON (mirip objek JavaScript). Setiap dokumen bisa punya isi yang berbeda-beda.",
-        sintaks: `db.koleksi.insertOne({ key1: value1, key2: value2 });`,
-        contoh: `db.pelanggan.insertOne({ nama: "Siti", email: "siti@email.com" });`,
-        contoh_mysql: "INSERT INTO pelanggan (nama, email) VALUES ('Siti', 'siti@email.com');"
-    },
-    {
-        id: 4,
-        name: "Field",
-        name_mysql: "Kolom (Field)",
-        deskripsi: "Field di MongoDB adalah seperti kolom di MySQL, tapi tidak wajib selalu sama di tiap dokumen. Ini seperti isian di catatan: kadang kamu isi 'email', kadang kamu tambahin 'alamat', kadang cuma 'nama' saja.",
-        contoh: `{ nama: "Andi", email: "andi@gmail.com" }`,
-        contoh_mysql: "`nama VARCHAR(50), email VARCHAR(50)`"
-    },
-    {
-        id: 5,
-        name: "Schema",
-        name_mysql: "Skema/Tabel Schema",
-        deskripsi: "Skema adalah aturan atau struktur yang mendefinisikan bentuk data: kolom apa saja yang ada, jenis datanya apa, boleh kosong atau tidak.",
-        contoh: `const ProdukSchema = new Schema({
+            {
+                id: 1,
+                name: "Database",
+                name_mysql: "Database",
+                deskripsi: "Database adalah tempat utama untuk menyimpan semua data. Bisa dibayangkan seperti sebuah lemari besar yang di dalamnya kamu taruh banyak map atau dokumen. Di dalam MySQL dan MongoDB, semua data disimpan di dalam database sebagai wadah utama.",
+                sintaks: "use nama_database",
+                contoh: "use toko_online",
+                contoh_mysql: "USE toko_online;"
+            },
+            {
+                id: 2,
+                name: "Koleksi",
+                name_mysql: "Tabel",
+                deskripsi: "Koleksi adalah kumpulan dokumen dalam MongoDB, mirip seperti tumpukan catatan yang punya tema sama, misalnya semua catatan tentang pelanggan.",
+                sintaks: `db.nama_koleksi.insertOne({ ... })`,
+                contoh: `db.pelanggan.insertOne({ nama: "Budi", email: "budi@gmail.com" })`,
+                contoh_mysql: "CREATE TABLE pelanggan (id INT, nama VARCHAR(50), email VARCHAR(50));"
+            },
+            {
+                id: 3,
+                name: "Dokumen",
+                name_mysql: "Baris (Record)",
+                deskripsi: "Dokumen adalah satu set data utuh dalam bentuk JSON (mirip objek JavaScript). Setiap dokumen bisa punya isi yang berbeda-beda.",
+                sintaks: `db.koleksi.insertOne({ key1: value1, key2: value2 });`,
+                contoh: `db.pelanggan.insertOne({ nama: "Siti", email: "siti@email.com" });`,
+                contoh_mysql: "INSERT INTO pelanggan (nama, email) VALUES ('Siti', 'siti@email.com');"
+            },
+            {
+                id: 4,
+                name: "Field",
+                name_mysql: "Kolom (Field)",
+                deskripsi: "Field di MongoDB adalah seperti kolom di MySQL, tapi tidak wajib selalu sama di tiap dokumen. Ini seperti isian di catatan: kadang kamu isi 'email', kadang kamu tambahin 'alamat', kadang cuma 'nama' saja.",
+                contoh: `{ nama: "Andi", email: "andi@gmail.com" }`,
+                contoh_mysql: "`nama VARCHAR(50), email VARCHAR(50)`"
+            },
+            {
+                id: 5,
+                name: "Schema",
+                name_mysql: "Skema/Tabel Schema",
+                deskripsi: "Skema adalah aturan atau struktur yang mendefinisikan bentuk data: kolom apa saja yang ada, jenis datanya apa, boleh kosong atau tidak.",
+                contoh: `const ProdukSchema = new Schema({
   nama: String,
   harga: Number
 });`,
-        contoh_mysql: `CREATE TABLE produk (
+                contoh_mysql: `CREATE TABLE produk (
   nama VARCHAR(100) NOT NULL,
   harga DECIMAL(10,2) NOT NULL
 );`
-    },
-    {
-        id: 6,
-        name: "Query",
-        name_mysql: "Query",
-        deskripsi: "Query adalah perintah untuk mengambil atau memanipulasi data. Bisa untuk mencari data, menambah, mengubah, atau menghapus.",
-        contoh: `db.pelanggan.find({ nama: "Budi" });`,
-        contoh_mysql: `SELECT * FROM pelanggan WHERE nama = 'Budi';`
-    },
+            },
+            {
+                id: 6,
+                name: "Query",
+                name_mysql: "Query",
+                deskripsi: "Query adalah perintah untuk mengambil atau memanipulasi data. Bisa untuk mencari data, menambah, mengubah, atau menghapus.",
+                contoh: `db.pelanggan.find({ nama: "Budi" });`,
+                contoh_mysql: `SELECT * FROM pelanggan WHERE nama = 'Budi';`
+            },
         ]
     },
     {
@@ -2390,7 +2390,103 @@ END IF;
         ],
     },
 
-
+    {
+  parentId: 8,
+  temaId: 0,
+  name: "Perkenalan",
+  perkenalan: [
+    {
+      title: "Pengertian",
+      body: "Index di MongoDB adalah struktur data khusus yang mempercepat proses pencarian dokumen dalam koleksi. Tanpa index, MongoDB harus memindai seluruh dokumen dalam koleksi (full collection scan), yang lambat jika data banyak."
+    },
+    {
+      title: "Analogi",
+      body: "Bayangkan kamu mencari satu topik di buku tebal tanpa daftar isi. Kamu harus baca semua halaman satu-satu. Tapi kalau ada index, kamu tinggal lompat langsung ke halaman yang dimaksud. Itulah fungsi index!"
+    },
+    {
+      title: "Apa jadinya tanpa Index?",
+      body: "Query akan menjadi lambat karena MongoDB akan mengecek semua dokumen satu per satu. Ini memakan waktu dan sumber daya, terutama untuk data besar."
+    },
+    {
+      title: "Fungsi Umum Index",
+      body: "Meningkatkan performa pencarian data (find), sorting, serta digunakan dalam fitur-fitur seperti TTL, pencarian teks, dan lokasi geografis."
+    }
+  ],
+  komponen: [
+    {
+      id: 1,
+      name: "Single Field Index",
+      name_mysql: "Single Column Index",
+      deskripsi: "Index yang dibuat hanya pada satu field. Berguna untuk mempercepat query berdasarkan satu kolom.",
+      sintaks: `db.users.createIndex({ username: 1 })`,
+      contoh: `db.users.find({ username: "Budi" })`,
+      contoh_mysql: `CREATE INDEX index_username ON users(username);`
+    },
+    {
+      id: 2,
+      name: "Compound Index",
+      name_mysql: "Composite Index",
+      deskripsi: "Index yang mencakup dua atau lebih field. Digunakan untuk query kombinasi kolom.",
+      sintaks: `db.users.createIndex({ username: 1, email: -1 })`,
+      contoh: `db.users.find({ username: "Budi" }).sort({ email: -1 })`,
+      contoh_mysql: `CREATE INDEX index_user_email ON users(username ASC, email DESC);`
+    },
+    {
+      id: 3,
+      name: "Multikey Index",
+      name_mysql: "Tidak tersedia",
+      deskripsi: "Digunakan untuk field array. MongoDB membuat index untuk setiap elemen di dalam array.",
+      sintaks: `db.products.createIndex({ tags: 1 })`,
+      contoh: `db.products.find({ tags: "elektronik" })`,
+      contoh_mysql: `Tidak tersedia karena MySQL tidak mendukung array sebagai field.`
+    },
+    {
+      id: 4,
+      name: "Text Index",
+      name_mysql: "Fulltext Index",
+      deskripsi: "Index untuk pencarian teks seperti full-text search (cari kata dalam kalimat).",
+      sintaks: `db.articles.createIndex({ title: "text", content: "text" })`,
+      contoh: `db.articles.find({ $text: { $search: "mongo cepat" } })`,
+      contoh_mysql: `CREATE FULLTEXT INDEX index_text ON articles(title, content);`
+    },
+    {
+      id: 5,
+      name: "Hashed Index",
+      name_mysql: "Tidak tersedia",
+      deskripsi: "Mengindeks berdasarkan hash dari field. Cocok untuk pencarian exact match dan sharding.",
+      sintaks: `db.users.createIndex({ userId: "hashed" })`,
+      contoh: `db.users.find({ userId: "abc123" })`,
+      contoh_mysql: `Tidak ada padanannya di MySQL.`
+    },
+    {
+      id: 6,
+      name: "Geospatial Index (2dsphere)",
+      name_mysql: "Spatial Index",
+      deskripsi: "Digunakan untuk data geografis (longitude & latitude) untuk pencarian lokasi sekitar.",
+      sintaks: `db.places.createIndex({ location: "2dsphere" })`,
+      contoh: `db.places.find({ location: { $near: { $geometry: { type: "Point", coordinates: [106.8, -6.2] } } })`,
+      contoh_mysql: `CREATE SPATIAL INDEX idx_location ON places(location);`
+    },
+    {
+      id: 7,
+      name: "Wildcard Index",
+      name_mysql: "Tidak tersedia",
+      deskripsi: "Mengindeks seluruh field dalam dokumen secara otomatis. Cocok untuk dokumen dengan struktur dinamis.",
+      sintaks: `db.logs.createIndex({ "$**": 1 })`,
+      contoh: `db.logs.find({ user.name: "Budi" })`,
+      contoh_mysql: `MySQL tidak mendukung wildcard indexing.`
+    },
+    {
+      id: 8,
+      name: "TTL (Time-To-Live) Index",
+      name_mysql: "Manual via Event",
+      deskripsi: "Dokumen dengan TTL Index akan otomatis dihapus setelah waktu tertentu. Cocok untuk sesi login atau cache.",
+      sintaks: `db.sessions.createIndex({ createdAt: 1 }, { expireAfterSeconds: 3600 })`,
+      contoh: `db.sessions.insertOne({ createdAt: new Date() })`,
+      contoh_mysql: `Gunakan EVENT atau scheduler MySQL untuk menghapus data berdasarkan waktu.`
+    }
+  ]
+},
     {
         parentId: 8,
         temaId: 1,
